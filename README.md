@@ -1,0 +1,1 @@
+HELPio została stworzona z myślą o zapewnieniu maksymalnego bezpieczeństwa użytkownikom w sytuacjach awaryjnych. Nasza aplikacja łączy w sobie funkcje alarmowe, lokalizacyjne i komunikacyjne, aby w krytycznym momencie zapewnić szybką i skuteczną pomoc.

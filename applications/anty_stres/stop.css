@@ -1,0 +1,76 @@
+/* stop.css */
+.stop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    color: white;
+}
+
+.stop-button-wrapper {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.stop-btn {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: none;
+    background: #ef4444;
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    transition: all 0.3s;
+    animation: pulse-red 2s infinite;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stop-btn:hover {
+    transform: scale(1.05);
+}
+
+.stop-btn.active {
+    background: #3b82f6;
+    /* Blue for calm/observe */
+    animation: none;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+.stop-message {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    min-height: 3em;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.stop-message.visible {
+    opacity: 1;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}

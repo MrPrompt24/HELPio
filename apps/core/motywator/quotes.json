@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "text": "Dasz radę! Jesteś silniejszy niż myślisz.",
+    "category": "motivation"
+  },
+  {
+    "id": 2,
+    "text": "Każda podróż zaczyna się od pierwszego kroku.",
+    "category": "motivation"
+  },
+  {
+    "id": 3,
+    "text": "To tylko gorszy dzień, nie gorsze życie.",
+    "category": "calm"
+  },
+  {
+    "id": 4,
+    "text": "Oddychaj. Wszystko będzie dobrze.",
+    "category": "calm"
+  },
+  {
+    "id": 5,
+    "text": "Może i nie jest idealnie, ale chociaż kawa jest dobra.",
+    "category": "humor"
+  },
+  {
+    "id": 6,
+    "text": "Pamiętaj, że nawet ślimak dotarł do Arki. Powoli do celu!",
+    "category": "humor"
+  },
+  {
+    "id": 7,
+    "text": "Sukces to suma małych wysiłków, powtarzanych dzień po dniu.",
+    "category": "motivation"
+  },
+  {
+    "id": 8,
+    "text": "Nie musisz być doskonały, żeby zacząć.",
+    "category": "motivation"
+  },
+  {
+    "id": 9,
+    "text": "Spokój to supermoc.",
+    "category": "calm"
+  },
+  {
+    "id": 10,
+    "text": "Dziś bądź dla siebie wyrozumiały.",
+    "category": "calm"
+  },
+  {
+    "id": 11,
+    "text": "Jeśli plan A nie zadziałał, alfabet ma jeszcze 31 liter (po polsku).",
+    "category": "humor"
+  },
+  {
+    "id": 12,
+    "text": "Uśmiechnij się. To myli ludzi, którzy chcą Cię zniszczyć.",
+    "category": "humor"
+  },
+  {
+    "id": 13,
+    "text": "Twoja jedyna granica to Ty sam.",
+    "category": "motivation"
+  },
+  {
+    "id": 14,
+    "text": "Wierzę w Ciebie.",
+    "category": "motivation"
+  },
+  {
+    "id": 15,
+    "text": "Zatrzymaj się na chwilę i popatrz w niebo.",
+    "category": "calm"
+  }
+]

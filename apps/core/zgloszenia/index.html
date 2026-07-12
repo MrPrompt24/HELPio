@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonimowe Zgłoszenia i Ochrona Prywatności</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent-color: #2ea043;
+    --accent-hover: #3fb950;
+    --danger-color: #da3633;
+    --warning-color: #bb8009;
+    --input-bg: #0d1117;
+    --border-color: #30363d;
+    --font-main: 'Outfit', sans-serif;
+    --font-code: 'Source Code Pro', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.logo i {
+    color: var(--accent-color);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Main Container */
+main {
+    flex: 1;
+    padding: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+/* Views Logic */
+.view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.view.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home View */
+.hero {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.hero p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.menu-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.menu-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.menu-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.menu-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.menu-card p {
+    color: var(--text-secondary);
+}
+
+.menu-card.secondary i {
+    color: #a371f7;
+}
+
+/* Report Categories Grid */
+.view-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.view-header h2 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    width: fit-content;
+}
+
+.back-btn:hover {
+    color: var(--text-primary);
+}
+
+.report-categories {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.category-card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.category-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 160, 67, 0.25);
+}
+
+.category-card:active {
+    transform: translateY(-1px);
+}
+
+.category-icon {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(46, 160, 67, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    transition: all 0.25s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1);
+}
+
+.category-icon i {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+}
+
+.category-icon.danger {
+    background-color: rgba(218, 54, 51, 0.15);
+}
+
+.category-icon.danger i {
+    color: var(--danger-color);
+}
+
+.category-icon.warning {
+    background-color: rgba(187, 128, 9, 0.15);
+}
+
+.category-icon.warning i {
+    color: var(--warning-color);
+}
+
+.category-card h3 {
+    font-size: 1.15rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.category-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.category-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+}
+
+.link-badge {
+    background-color: rgba(46, 160, 67, 0.2);
+    color: var(--accent-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(46, 160, 67, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.link-badge.clickable {
+    cursor: pointer;
+}
+
+.link-badge.clickable:hover {
+    background-color: rgba(46, 160, 67, 0.3);
+    transform: scale(1.05);
+}
+
+.link-badge.phone {
+    background-color: rgba(218, 54, 51, 0.2);
+    color: var(--danger-color);
+    border-color: rgba(218, 54, 51, 0.3);
+}
+
+.link-badge.phone:hover {
+    background-color: rgba(218, 54, 51, 0.3);
+}
+
+.link-badge i {
+    font-size: 0.7rem;
+}
+
+.emergency-link {
+    color: var(--danger-color);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+    background-color: rgba(218, 54, 51, 0.15);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.emergency-link:hover {
+    background-color: rgba(218, 54, 51, 0.25);
+}
+
+.emergency-info {
+    background-color: rgba(218, 54, 51, 0.1);
+    border: 2px solid var(--danger-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.emergency-info i {
+    font-size: 2rem;
+    color: var(--danger-color);
+    flex-shrink: 0;
+}
+
+.emergency-info div {
+    flex: 1;
+}
+
+.emergency-info strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+}
+
+.emergency-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Guide */
+.guide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.guide-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s;
+}
+
+.guide-item:hover {
+    border-color: var(--accent-color);
+}
+
+.guide-item .icon-box {
+    background-color: #21262d; 
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.guide-item i {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+.guide-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.guide-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Panic Button */
+.panic-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--danger-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(218, 54, 51, 0.4);
+    z-index: 1000;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.panic-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(218, 54, 51, 0.5);
+}
+
+.panic-btn:active {
+    transform: scale(0.95);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .menu-card {
+        padding: 1.5rem;
+    }
+
+    .menu-card i {
+        font-size: 2.5rem;
+    }
+
+    .category-card {
+        padding: 1.25rem;
+    }
+
+    .category-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .category-icon i {
+        font-size: 1.4rem;
+    }
+    
+    .guide-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .emergency-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .panic-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .app-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .status-indicator {
+        font-size: 0.7rem;
+    }
+
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo">
+            <i class="fa-solid fa-user-secret"></i>
+            <span>SecureReport</span>
+        </div>
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-text">Połączenie Bezpieczne</span>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- View: Home Menu -->
+        <section id="view-home" class="view active">
+            <div class="hero">
+                <h1>Twoje bezpieczeństwo jest priorytetem</h1>
+                <p>Anonimowo zgłaszaj zagrożenia i dowiedz się, jak chronić swoją cyfrową tożsamość.</p>
+            </div>
+            
+            <div class="menu-grid">
+                <button class="menu-card" onclick="navigateTo('view-report')">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h2>Zgłoś Zagrożenie</h2>
+                    <p>Przekierowanie do odpowiednich instytucji</p>
+                </button>
+                
+                <button class="menu-card secondary" onclick="navigateTo('view-guide')">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h2>Baza Wiedzy</h2>
+                    <p>Jak dbać o prywatność</p>
+                </button>
+            </div>
+        </section>
+
+        <!-- View: Report Form -->
+        <section id="view-report" class="view hidden">
+            <div class="view-header">
+                <button class="back-btn" onclick="navigateTo('view-home')">
+                    <i class="fa-solid fa-arrow-left"></i> Wróć
+                </button>
+                <h2>Wybierz typ zgłoszenia</h2>
+            </div>
+
+            <div class="report-categories">
+                <div class="category-card" onclick="reportCategory('cyberbullying')">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3>Cyberprzemoc</h3>
+                    <p>Zgłoś nękanie, dręczenie online, groźby w internecie</p>
+                    <div class="category-links">
+                        <a href="https://dyzurnet.pl/zgloszenie" target="_blank" class="link-badge clickable" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-globe"></i> Dyzurnet.pl
+                        </a>
+                        <a href="tel:116111" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 116 111
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="reportCategory('domestic_violence')">
+                    <div class="category-icon danger">
+                        <i class="fa-solid fa-hand"></i>
+                    </div>
+                    <h3>Przemoc domowa</h3>
+                    <p>Pomoc w sytuacji przemocy w rodzinie</p>
+                    <div class="category-links">
+                        <a href="https://www.niebieskalinia.pl/" target="_blank" class="link-badge clickable" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-globe"></i> Niebieska Linia
+                        </a>
+                        <a href="tel:800120002" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 800 120 002
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="reportCategory('discrimination')">
+                    <div class="category-icon warning">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3>Dyskryminacja / Hejt</h3>
+                    <p>Zgłoś mowę nienawiści, dyskryminację</p>
+                    <div class="category-links">
+                        <a href="https://www.gov.pl/web/sprawiedliwosc/zgloszenie-przestepstwa-z-nienawisci" target="_blank" class="link-badge clickable" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-globe"></i> Formularz
+                        </a>
+                        <a href="tel:997" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 997
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="reportCategory('child_abuse')">
+                    <div class="category-icon danger">
+                        <i class="fa-solid fa-child"></i>
+                    </div>
+                    <h3>Krzywdzenie dzieci</h3>
+                    <p>Zgłoś treści przedstawiające wykorzystywanie dzieci</p>
+                    <div class="category-links">
+                        <a href="https://dyzurnet.pl/zgloszenie" target="_blank" class="link-badge clickable" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-globe"></i> Dyzurnet.pl
+                        </a>
+                        <a href="tel:116111" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 116 111
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="reportCategory('security_threat')">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3>Zagrożenie bezpieczeństwa</h3>
+                    <p>Zgłoś poważne zagrożenia dla życia lub zdrowia</p>
+                    <div class="category-links">
+                        <a href="tel:997" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 997
+                        </a>
+                        <a href="tel:112" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 112
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="reportCategory('scam')">
+                    <div class="category-icon warning">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <h3>Oszustwo / Phishing</h3>
+                    <p>Zgłoś próby wyłudzenia danych lub pieniędzy</p>
+                    <div class="category-links">
+                        <a href="https://incydent.cert.pl/" target="_blank" class="link-badge clickable" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-globe"></i> CERT Polska
+                        </a>
+                        <a href="tel:997" class="link-badge clickable phone" onclick="event.stopPropagation()">
+                            <i class="fa-solid fa-phone"></i> 997
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emergency-info">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <strong>Pilne zgłoszenie?</strong>
+                    <p>W sytuacji zagrożenia życia dzwoń: 
+                        <a href="tel:112" class="emergency-link">112</a> lub 
+                        <a href="tel:997" class="emergency-link">997</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- View: Privacy Guide -->
+        <section id="view-guide" class="view hidden">
+            <div class="view-header">
+                <button class="back-btn" onclick="navigateTo('view-home')">
+                    <i class="fa-solid fa-arrow-left"></i> Wróć
+                </button>
+                <h2>Poradnik Bezpieczeństwa</h2>
+            </div>
+
+            <div class="guide-content">
+                <article class="guide-item">
+                    <div class="icon-box"><i class="fa-solid fa-mask"></i></div>
+                    <div class="content">
+                        <h3>Anonimowość w Sieci</h3>
+                        <p>Używaj przeglądarki Tor lub trybu incognito, aby utrudnić śledzenie Twojej aktywności. Pamiętaj, że tryb incognito nie ukrywa Twojego adresu IP przed dostawcą internetu.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                    <div class="content">
+                        <h3>Korzystanie z VPN</h3>
+                        <p>VPN (Virtual Private Network) maskuje Twój adres IP i szyfruje ruch internetowy. Używaj sprawdzonych dostawców, którzy nie logują aktywności.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <div class="icon-box"><i class="fa-solid fa-lock"></i></div>
+                    <div class="content">
+                        <h3>Szyfrowana Komunikacja</h3>
+                        <p>Do wrażliwych rozmów używaj komunikatorów z szyfrowaniem end-to-end (E2EE), takich jak Signal. Wiadomości znikające to dodatkowa warstwa ochrony.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <div class="icon-box"><i class="fa-solid fa-eraser"></i></div>
+                    <div class="content">
+                        <h3>Czyszczenie Śladów</h3>
+                        <p>Regularnie czyść historię przeglądania, pliki cookie i pamięć podręczną. Na urządzeniach współdzielonych zawsze wylogowuj się z kont.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Panic Button -->
+    <button class="panic-btn" onclick="emergencyExit()" title="Szybkie Wyjście">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <script>
+function navigateTo(viewId) {
+    document.querySelectorAll('.view').forEach(view => {
+        view.classList.add('hidden');
+        view.classList.remove('active');
+    });
+
+    const targetView = document.getElementById(viewId);
+    if (targetView) {
+        targetView.classList.remove('hidden');
+        targetView.classList.add('active');
+        window.scrollTo(0, 0);
+    }
+}
+
+function reportCategory(category) {
+    const reportUrls = {
+        'cyberbullying': 'https://dyzurnet.pl/zgloszenie',
+        'domestic_violence': 'https://www.niebieskalinia.pl/',
+        'discrimination': 'https://www.gov.pl/web/sprawiedliwosc/zgloszenie-przestepstwa-z-nienawisci',
+        'child_abuse': 'https://dyzurnet.pl/zgloszenie',
+        'security_threat': 'tel:997',
+        'scam': 'https://incydent.cert.pl/'
+    };
+
+    const url = reportUrls[category];
+    
+    if (url) {
+        const confirmMsg = getConfirmationMessage(category);
+        if (confirm(confirmMsg)) {
+            window.open(url, '_blank');
+        }
+    }
+}
+
+function getConfirmationMessage(category) {
+    const messages = {
+        'cyberbullying': 'Zostaniesz przekierowany do Dyzurnet.pl - platformy zgłaszania nielegalnych treści w internecie.\n\nCzy kontynuować?',
+        'domestic_violence': 'Zostaniesz przekierowany do Niebieskiej Linii - ogólnopolskiego telefonu dla ofiar przemocy domowej.\n\nW nagłych przypadkach dzwoń: 800 120 002\n\nCzy kontynuować?',
+        'discrimination': 'Zostaniesz przekierowany do formularza zgłoszenia przestępstwa z nienawiści.\n\nW nagłych przypadkach dzwoń: 997\n\nCzy kontynuować?',
+        'child_abuse': 'Zostaniesz przekierowany do Dyzurnet.pl - możesz tam anonimowo zgłosić treści przedstawiające wykorzystywanie seksualne dzieci.\n\nW nagłych przypadkach dzwoń: 112 lub 997\n\nCzy kontynuować?',
+        'security_threat': 'W przypadku bezpośredniego zagrożenia życia lub zdrowia natychmiast dzwoń pod numer alarmowy 112 lub 997.\n\nCzy wykonać połączenie?',
+        'scam': 'Zostaniesz przekierowany do CERT Polska - możesz zgłosić incydenty bezpieczeństwa, oszustwa internetowe i phishing.\n\nCzy kontynuować?'
+    };
+    
+    return messages[category] || 'Czy chcesz przejść do strony zgłoszeniowej?';
+}
+
+function emergencyExit() {
+    window.location.href = "https://www.google.com";
+}
+    </script>
+</body>
+</html>

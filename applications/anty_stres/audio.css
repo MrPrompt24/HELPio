@@ -1,0 +1,140 @@
+/* audio.css */
+.audio-container {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+    padding: 1rem;
+}
+
+.audio-player-card {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.now-playing {
+    margin-bottom: 2rem;
+}
+
+.track-icon {
+    font-size: 4rem;
+    color: #10b981;
+    margin-bottom: 1rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.track-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.track-status {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #1f2937;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.control-btn:hover {
+    color: #10b981;
+    transform: scale(1.1);
+}
+
+.btn-play {
+    width: 60px;
+    height: 60px;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-play:hover {
+    color: white;
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.track-item {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+    color: #1f2937;
+}
+
+.track-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.track-item.active {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.track-item i {
+    margin-right: 1rem;
+    color: #10b981;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Custom scrollbar for playlist */
+.playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}

@@ -1,0 +1,94 @@
+/* stress-release.css */
+.release-container {
+    height: 70vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+    user-select: none;
+    touch-action: none;
+}
+
+.release-intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #1f2937;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.release-intro.fade {
+    opacity: 0;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+.ripple {
+    position: absolute;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: rippleEffect 1s forwards;
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+/* Persistent Back Button */
+.btn-back-persistent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: white;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s;
+    border: 1px solid #e5e7eb;
+}
+
+.btn-back-persistent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background-color: #f9fafb;
+    color: #10b981;
+}
+
+.btn-back-persistent:active {
+    transform: translateY(0);
+}

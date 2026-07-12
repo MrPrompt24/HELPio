@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HELPio - Katalog Aplikacji">
+    <meta name="theme-color" content="#10b981">
+
+    <title>HELPio - Katalog Aplikacji</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="katalog.css">
+
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <a href="../index.html"
+                    style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-arrow-left header-icon"></i>
+                    <span style="font-weight: 500;">Wróć</span>
+                </a>
+            </div>
+
+            <a href="../index.html" class="logo-link">
+                <img src="../images/logo.png" alt="HELPio" class="logo-image" />
+            </a>
+
+            <div class="header-actions">
+                <i class="fas fa-search header-icon" id="search-toggle"></i>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-view">
+
+                <div class="catalog-header">
+                    <h1>Katalog Aplikacji</h1>
+                    <p>Przeglądaj wszystkie dostępne narzędzia i moduły HELPio</p>
+
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="app-search" placeholder="Szukaj aplikacji...">
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="catalog-grid" id="catalog-grid">
+
+                    <!-- Nowości -->
+                    <div class="catalog-section">
+                        <h2><i class="fas fa-star"></i> Nowości</h2>
+                        <div class="cards-grid">
+                            <!-- Card: Aqua Motiv -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.1);">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <h3 class="card-title">Aqua Motiv</h3>
+                                    <p class="card-short-desc">Twoje nawodnienie pod kontrolą.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Monitoruj spożycie wody, otrzymuj przypomnienia i dbaj o zdrowie każdego dnia.
+                                        Prosta i skuteczna aplikacja do nawadniania organizmu.</p>
+                                    <a href="aqua_motiv/index.html" class="btn-open-app"
+                                        style="margin-bottom: 0.5rem; background: #0ea5e9;">Otwórz Aplikację &rarr;</a>
+                                    <button class="btn-add-to-apps" data-id="aqua_motiv" data-name="Aqua Motiv"
+                                        data-icon="fas fa-tint" data-link="apps/aqua_motiv/index.html"
+                                        style="width: 100%; padding: 0.8rem; border: 1px solid #0ea5e9; color: #0ea5e9; background: transparent; border-radius: 8px; cursor: pointer; font-weight: 500; transition: all 0.3s;">
+                                        <i class="fas fa-plus"></i> Dodaj do Moje Aplikacje
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bezpieczeństwo -->
+                    <div class="catalog-section">
+                        <h2><i class="fas fa-shield-alt"></i> Bezpieczeństwo</h2>
+                        <div class="cards-grid">
+                            <!-- Card: Alarm -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-bell"></i></div>
+                                    <h3 class="card-title">Alarm</h3>
+                                    <p class="card-short-desc">Sygnał dźwiękowy w nagłych wypadkach.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Uruchamia głośny sygnał alarmowy, aby zwrócić uwagę otoczenia lub odstraszyć
+                                        zagrożenie. Działa również przy wyciszonym telefonie.</p>
+                                    <a href="../applications/alarm/alarm.html" class="btn-open-app">Otwórz Aplikację
+                                        &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Pomoc W Pobliżu -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <h3 class="card-title">Pomoc w Pobliżu</h3>
+                                    <p class="card-short-desc">Lokalizacja najbliższych służb.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Szybko znajdź na mapie najbliższe szpitale, komisariaty policji i punkty
+                                        ratunkowe. Umożliwia nawigację do wybranego punktu.</p>
+                                    <a href="../applications/pomoc_w_poblizu/pomoc_w_poblizu.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Tryb Cichy -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-volume-mute"></i></div>
+                                    <h3 class="card-title">Tryb Cichy</h3>
+                                    <p class="card-short-desc">Dyskretne wezwanie pomocy.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Pozwala na wezwanie pomocy bez wydawania dźwięków. Wysyła powiadomienie SMS z
+                                        lokalizacją do zaufanych kontaktów.</p>
+                                    <a href="../applications/tryb_cichy/tryb_cichy.html" class="btn-open-app">Otwórz
+                                        Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Tryb Awaryjny -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-battery-half"></i></div>
+                                    <h3 class="card-title">Tryb Awaryjny</h3>
+                                    <p class="card-short-desc">Oszczędzanie energii w kryzysie.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Wyłącza zbędne funkcje telefonu, przyciemnia ekran i oszczędza baterię, abyś mógł
+                                        wezwać pomoc, gdy tego najbardziej potrzebujesz.</p>
+                                    <a href="../applications/tryb_awaryjny/tryb_awaryjny.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zdrowie i Psychologia -->
+                    <div class="catalog-section">
+                        <h2><i class="fas fa-heartbeat"></i> Zdrowie i Psychologia</h2>
+
+                        <div class="cards-grid">
+                            <!-- Card: Anty Stres -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-spa"></i></div>
+                                    <h3 class="card-title">Anty Stres</h3>
+                                    <p class="card-short-desc">Techniki relaksacyjne.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Zbiór ćwiczeń oddechowych, wizualizacji i porad, które pomogą Ci opanować stres i
+                                        niepokój w trudnych chwilach.</p>
+                                    <a href="../applications/anty_stres/anty_stres.html" class="btn-open-app">Otwórz
+                                        Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Higiena Cyfrowa -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+                                    <h3 class="card-title">Higiena Cyfrowa</h3>
+                                    <p class="card-short-desc">Zdrowe nawyki online.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Dowiedz się, jak dbać o swoje zdrowie psychiczne w świecie cyfrowym. Testy
+                                        uzależnienia i porady dotyczące detoksu.</p>
+                                    <a href="../applications/cyfrowa_higiena/cyfrowa_higiena.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Pierwsza Pomoc -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-first-aid"></i></div>
+                                    <h3 class="card-title">Pierwsza Pomoc</h3>
+                                    <p class="card-short-desc">Instrukcje krok po kroku.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Interaktywny przewodnik pierwszej pomocy z asystentem głosowym. Dowiedz się, jak
+                                        reagować w nagłych wypadkach medycznych.</p>
+                                    <a href="../applications/pierwsza_pomoc/pierwsza_pomoc.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organizacja -->
+                    <div class="catalog-section">
+                        <h2><i class="fas fa-folder-open"></i> Organizacja</h2>
+                        <div class="cards-grid">
+                            <!-- Card: Moje Kontakty -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-address-book"></i></div>
+                                    <h3 class="card-title">Moje Kontakty</h3>
+                                    <p class="card-short-desc">Ważne numery (PIN).</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Stwórz listę zaufanych osób, które zostaną powiadomione w razie
+                                        niebezpieczeństwa. Dostęp chroniony kodem PIN.</p>
+                                    <a href="../applications/moje_kontakty/moje_kontakty.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Mój Dzień -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                                    <h3 class="card-title">Mój Dzień</h3>
+                                    <p class="card-short-desc">Planer i zadania (PIN).</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Zarządzaj swoim czasem i zadaniami. Prywatne notatki i harmonogram dnia
+                                        zabezpieczone PIN-em.</p>
+                                    <a href="../applications/moj_dzien/moj_dzien.html" class="btn-open-app">Otwórz
+                                        Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Eksport/Import -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-file-export"></i></div>
+                                    <h3 class="card-title">Eksport/Import</h3>
+                                    <p class="card-short-desc">Kopia zapasowa danych.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Zabezpiecz swoje dane. Eksportuj ustawienia i kontakty do pliku lub przywróć je
+                                        na innym urządzeniu.</p>
+                                    <a href="../applications/eksport_import/eksport-import.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wiedza -->
+                    <div class="catalog-section">
+                        <h2><i class="fas fa-book"></i> Wiedza</h2>
+                        <div class="cards-grid">
+                            <!-- Card: Edukacja -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <h3 class="card-title">Edukacja</h3>
+                                    <p class="card-short-desc">Baza wiedzy i poradniki.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Poszerzaj swoją wiedzę na temat bezpieczeństwa, psychologii i pierwszej pomocy
+                                        dzięki naszym artykułom i poradnikom.</p>
+                                    <a href="../applications/edukacja_i_swiadomosc/edukacja_i_swiadomosc.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Card: Cyber Ochrona -->
+                            <div class="app-card">
+                                <div class="card-front">
+                                    <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+                                    <h3 class="card-title">Cyber Ochrona</h3>
+                                    <p class="card-short-desc">Bezpieczeństwo w sieci.</p>
+                                    <button class="btn-read-more" aria-expanded="false">Czytaj więcej... <i
+                                            class="fas fa-chevron-down"></i></button>
+                                </div>
+                                <div class="card-details">
+                                    <p>Zadbaj o swoje bezpieczeństwo w internecie. Generator haseł, sprawdzanie wycieków
+                                        i porady nt. cyberzagrożeń.</p>
+                                    <a href="../applications/cyber_ochrona/cyber_ochrona.html"
+                                        class="btn-open-app">Otwórz Aplikację &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer / Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="bottom-nav-item active">
+
+            </a>
+            <a href="../applications/dla_ratownika/dla-ratownika.html" class="bottom-nav-item">
+                <i class="fas fa-user-shield"></i>
+                <span>Dla Ratownika</span>
+            </a>
+            <style>
+                /* Kontener elementu nawigacji */
+                .bottom-nav-item {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    /* Dopasowanie do wysokości paska menu */
+                    padding: 5px;
+                    /* Opcjonalny odstęp wewnętrzny */
+                }
+
+                /* Styl dla samego linku/przycisku */
+                .emergency-button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    max-width: 60px;
+                    /* Maksymalna szerokość, by ikona nie była za wielka */
+                    text-decoration: none;
+                }
+
+                /* Styl dla ikony (obrazka) */
+                .emergency-button img {
+                    width: 100%;
+                    /* Zajmuje całą dostępną szerokość rodzica */
+                    height: auto;
+                    /* Zachowuje proporcje */
+                    max-height: 100%;
+                    /* Nie wychodzi poza wysokość menu */
+                    object-fit: contain;
+                    /* Gwarantuje, że ikona nie zostanie przycięta ani rozciągnięta */
+                    display: block;
+                }
+            </style>
+            <div class="bottom-nav-item">
+                <a href="../applications/sos/sos.html" class="emergency-button" id="emergency-sos"
+                    aria-label="Wezwij pomoc SOS">
+                    <img src="../images/sos.png" alt="SOS">
+                </a>
+            </div>
+            <a href="../applications/pierwsza_pomoc/pierwsza_pomoc.html" class="bottom-nav-item">
+                <i class="fas fa-first-aid"></i>
+                <span>Pierwsza Pomoc</span>
+            </a>
+            <a href="../applications/moja_pozycja/moja_pozycja.html" class="bottom-nav-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Pozycja</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="katalog.js"></script>
+	<script src="../availability/dostepnosc.js"></script>
+</body>
+
+</html>

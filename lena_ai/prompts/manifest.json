@@ -1,0 +1,32 @@
+[
+  {
+    "id": "default",
+    "name": "Lena AI",
+    "file": "default.json"
+  },
+  {
+    "id": "crisis_calm",
+    "name": "❤️ Wsparcie - Stres i Emocje",
+    "file": "crisis_calm.json"
+  },
+  {
+    "id": "crisis_admin",
+    "name": "📄 Kryzys - Dokumenty/Podróż",
+    "file": "crisis_admin.json"
+  },
+  {
+    "id": "crisis_tech",
+    "name": "🔧 Awaria - Dom/Auto",
+    "file": "crisis_tech.json"
+  },
+  {
+    "id": "crisis_conflict",
+    "name": "🤝 Asystent Konfliktu",
+    "file": "crisis_conflict.json"
+  },
+  {
+    "id": "writer",
+    "name": "Kreatywny Pisarz",
+    "file": "writer.json"
+  }
+]

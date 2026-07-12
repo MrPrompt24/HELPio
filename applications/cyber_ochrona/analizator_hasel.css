@@ -1,0 +1,111 @@
+/* analizator_hasel.css */
+.analyzer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #1f2937;
+    padding: 1rem;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.password-input {
+    width: 100%;
+    padding: 1.5rem;
+    padding-right: 4rem;
+    font-size: 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    color: #1f2937;
+    font-family: monospace;
+    transition: border-color 0.3s;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.toggle-visibility {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.result-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s;
+}
+
+.result-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.score-bar-bg {
+    width: 100%;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.score-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.5s, background-color 0.5s;
+}
+
+.checks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    color: #4b5563;
+}
+
+.check-item i {
+    width: 20px;
+}
+
+.check-item.pass i {
+    color: #10b981;
+}
+
+.check-item.fail i {
+    color: #ef4444;
+}
+
+.check-item.warn i {
+    color: #f59e0b;
+}
+
+.verdict {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}

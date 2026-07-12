@@ -1,0 +1,39 @@
+{
+  "name": "HELPio – Here, Help Meets Technology",
+  "short_name": "HELPio",
+  "description": "HELPio – aplikacja wsparcia i bezpieczeństwa w sytuacjach kryzysowych.",
+  "lang": "pl",
+
+  "start_url": "/app/index.html",
+  "scope": "/app/",
+
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+
+  "icons": [
+    {
+      "src": "/app/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/app/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/app/images/icon-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/app/images/icon-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MrPrompt Lena AI</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styl bazowy (ciemny) + warstwa na motywy -->
+  <link id="base-style" rel="stylesheet" href="styles.css" />
+  <link id="theme-style" rel="stylesheet" href="" />
+  <link rel="icon" type="image/png" href="fav.png">
+</head>
+
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="fav_small.png">
+      <span>Lena AI</span>
+    </div>
+
+    <nav class="actions">
+      <button id="open-help" class="icon-btn" title="Pomoc / instrukcja">
+        <i class="fa-regular fa-circle-question"></i><span class="hide-sm">Pomoc</span>
+      </button>
+      <button id="open-settings" class="icon-btn" title="Profile Asystenta (model, temperatura, styl)">
+        <i class="fa-solid fa-sliders"></i><span class="hide-sm">Profile Asystenta</span>
+      </button>
+      <button id="open-api" class="icon-btn" title="Klucz API">
+        <i class="fa-solid fa-key"></i><span class="hide-sm">Klucz API</span>
+      </button>
+      <button id="clear-chat" class="icon-btn danger" title="Wyczyść czat">
+        <i class="fa-regular fa-trash-can"></i><span class="hide-sm">Wyczyść</span>
+      </button>
+      <a href="https://console.groq.com/keys" target="_blank" rel="noopener" class="icon-btn ghost"
+        title="Pobierz darmowy klucz Groq">
+        <i class="fa-solid fa-link"></i><span class="hide-sm">Pobierz klucz</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Layout: start w trybie 1 kolumny -->
+  <main id="layout" class="layout panel-hidden">
+    <!-- Panel boczny (Ustawienia) – domyślnie ukryty -->
+    <aside id="settings-panel" class="sidepanel hidden" aria-hidden="true">
+      <div class="sidepanel-head">
+        <h2><i class="fa-solid fa-sliders"></i> Profile Asystenta</h2>
+        <button class="icon-btn" id="close-settings" title="Zamknij">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="sidepanel-content">
+        <label class="field">
+          <span>Styl interfejsu</span>
+          <select id="theme-select">
+            <option value="base">Bazowy (Ciemny)</option>
+            <option value="light">Jasny</option>
+            <option value="glass">Glassmorphism</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Model</span>
+          <div class="row">
+            <select id="model">
+              <!-- Wstępne wpisy; po kluczu nadpisze refreshModelsList() -->
+              <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile</option>
+              <option value="llama-3.3-8b-instant">llama-3.3-8b-instant</option>
+              <option value="mixtral-8x7b-32768">mixtral-8x7b-32768</option>
+              <option value="gemma2-9b-it">gemma2-9b-it</option>
+            </select>
+            <button type="button" class="icon-btn xs" id="refresh-models" title="Odśwież listę modeli">
+              <i class="fa-solid fa-rotate"></i>
+            </button>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Temperatura <small id="temp-val">0.3</small></span>
+          <input id="temperature" type="range" min="0" max="1" step="0.1" value="0.3" />
+        </label>
+
+        <label class="field">
+          <span>Profile Asystenta</span>
+          <select id="prompt-select">
+            <option value="default">Domyślny</option>
+          </select>
+          <div class="row" style="margin-top:5px;">
+            <small id="prompt-desc" style="color:var(--text-muted); font-style:italic;">...</small>
+          </div>
+        </label>
+
+        <div class="field row wrap">
+          <button id="export-history" class="icon-btn xs" type="button" title="Eksport historii do JSON">
+            <i class="fa-regular fa-file"></i> Eksport
+          </button>
+          <label class="icon-btn xs" title="Import historii z JSON" style="cursor:pointer">
+            <i class="fa-solid fa-file-arrow-up"></i> Import
+            <input id="import-history" type="file" accept="application/json" hidden />
+          </label>
+        </div>
+
+        <details class="tips">
+          <summary><i class="fa-regular fa-lightbulb"></i> Wskazówki</summary>
+          <ul>
+            <li>Shift+Enter = nowa linia, Enter = wyślij.</li>
+            <li>„Stop” przerywa strumień.</li>
+            <li>Historia w localStorage – eksport/import w Ustawieniach.</li>
+            <li>Modele pobierane dynamicznie po wklejeniu klucza.</li>
+          </ul>
+        </details>
+      </div>
+    </aside>
+
+    <!-- Obszar czatu -->
+    <section class="chat">
+      <ol id="messages" class="messages" aria-live="polite"></ol>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <button id="stop-btn" class="icon-btn ghost" type="button" title="Zatrzymaj generowanie" disabled>
+          <i class="fa-solid fa-stop"></i>
+        </button>
+
+        <div class="textbox">
+          <textarea id="input" rows="1" placeholder="Napisz wiadomość… (Shift+Enter = nowa linia)"></textarea>
+        </div>
+
+        <button id="send" class="send-btn" type="submit" title="Wyślij">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span class="hide-sm">Wyślij</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Stopka -->
+  <footer class="app-footer">© 2026 Copyright By <a href="https://mrprompt.eu/" target="_blank"
+      style="text-decoration: none;">
+      <font color="#f80a2c">MrPrompt</font>
+    </a> All Rights Reserved</footer>
+
+  <!-- Modal klucza API -->
+  <dialog id="api-modal">
+    <form method="dialog" class="modal-card" id="api-form">
+      <div class="modal-head">
+        <h3><i class="fa-solid fa-key"></i> Klucz API Groq</h3>
+        <button value="close" class="icon-btn" id="api-close" title="Zamknij">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="muted">
+        Wklej swój klucz z <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com</a>.
+        Klucz zapisujemy lokalnie w przeglądarce (<code>localStorage</code>).
+      </p>
+
+      <label class="field">
+        <span>API Key</span>
+        <input id="api-key" type="password" placeholder="gsk_..." required />
+      </label>
+
+      <div class="modal-actions">
+        <button value="save" class="primary"><i class="fa-solid fa-floppy-disk"></i> Zapisz</button>
+        <button value="close" class="ghost"><i class="fa-solid fa-xmark"></i> Zamknij</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal Pomoc / instrukcja -->
+  <dialog id="help-modal">
+    <form method="dialog" class="modal-card" id="help-form">
+      <div class="modal-head">
+        <h3><i class="fa-regular fa-circle-question"></i> Jak używać?</h3>
+        <button value="close" class="icon-btn" id="help-close" title="Zamknij">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="content help-content">
+        <p><strong>MrPrompt AI Connect</strong> to interaktywny czat AI oparty na modelach Groq, działający w całości w
+          Twojej przeglądarce.
+          Klucz API jest przechowywany lokalnie, a cała komunikacja przebiega bezpośrednio i bezpiecznie przez HTTPS.
+        </p>
+
+        <h4><i class="fa-solid fa-key"></i> Klucz API</h4>
+        <ul>
+          <li>Otwórz panel <strong>Klucz API</strong> i wklej swój klucz <code>gsk_…</code>.</li>
+          <li>Klucz zapisuje się lokalnie w <code>localStorage</code> – nie opuszcza Twojej przeglądarki.</li>
+          <li>Przycisk „Pobierz klucz” prowadzi do strony <a href="https://console.groq.com/keys"
+              target="_blank">console.groq.com</a>, gdzie uzyskasz darmowy dostęp.</li>
+        </ul>
+
+        <h4><i class="fa-solid fa-sliders"></i> Profile Asystenta</h4>
+        <ul>
+          <li><strong>Model</strong> – wybierz model AI (np. Llama 3.3, Mixtral, Gemma). Listę możesz odświeżyć klikając
+            ikonę <i class="fa-solid fa-rotate"></i>.</li>
+          <li><strong>Temperatura</strong> – suwak od 0 do 1 (niższa = bardziej precyzyjne, wyższa = bardziej kreatywne
+            odpowiedzi).</li>
+          <li><strong>System prompt</strong> – tekst określający osobowość i rolę asystenta. Domyślnie: „Jesteś
+            pomocnym, zwięzłym asystentem. Odpowiadaj po polsku.”</li>
+          <li><strong>Styl interfejsu</strong> – do wyboru: Ciemny (bazowy), Jasny, Glassmorphism.</li>
+          <li><strong>Eksport/Import historii</strong> – możesz zapisać wszystkie rozmowy do pliku JSON lub wczytać je
+            ponownie.</li>
+        </ul>
+
+        <h4><i class="fa-solid fa-comments"></i> Korzystanie z czatu</h4>
+        <ul>
+          <li><strong>Wysyłanie wiadomości</strong> – Enter = wyślij, Shift+Enter = nowa linia.</li>
+          <li><strong>Zatrzymywanie odpowiedzi</strong> – przycisk „Stop” zatrzymuje generowanie odpowiedzi.</li>
+          <li><strong>Kopiowanie</strong> – przy każdej odpowiedzi AI znajduje się przycisk „Kopiuj”.</li>
+          <li><strong>Wyczyść czat</strong> – usuwa całą rozmowę z bieżącej sesji.</li>
+        </ul>
+
+        <h4><i class="fa-solid fa-clock-rotate-left"></i> Historia rozmów</h4>
+        <ul>
+          <li>Rozmowy są zapisywane w Twojej przeglądarce (localStorage).</li>
+          <li>Dzięki opcji Eksport/Import możesz przenosić historię pomiędzy urządzeniami.</li>
+        </ul>
+
+        <h4><i class="fa-regular fa-lightbulb"></i> Wskazówki</h4>
+        <ul>
+          <li>Możesz w każdej chwili zmienić model lub system prompt bez utraty historii rozmowy.</li>
+          <li>Wartość temperatury <code>0.2–0.4</code> daje odpowiedzi bardziej rzeczowe, a <code>0.7+</code> – bardziej
+            kreatywne.</li>
+        </ul>
+      </div>
+
+      <div class="modal-actions">
+        <button value="close" class="primary">
+          <i class="fa-solid fa-check"></i> OK
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+
+  <!-- Uniwersalny modal potwierdzenia -->
+  <dialog id="confirm-modal">
+    <form method="dialog" class="modal-card" id="confirm-form">
+      <div class="modal-head">
+        <h3><i class="fa-regular fa-circle-question"></i> Potwierdź</h3>
+        <button value="close" class="icon-btn" id="confirm-close" title="Zamknij">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="muted" id="confirm-message">Czy na pewno?</p>
+      <div class="modal-actions">
+        <button value="cancel" class="ghost"><i class="fa-solid fa-xmark"></i> Anuluj</button>
+        <button value="ok" class="primary"><i class="fa-regular fa-trash-can"></i> Tak, wykonaj</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Szablon wiadomości -->
+  <template id="msg-template">
+    <li class="msg">
+      <div class="avatar"></div>
+      <div class="bubble">
+        <div class="bubble-head">
+          <span class="role"></span>
+          <div class="bubble-actions">
+            <button class="icon-btn xs copy" title="Kopiuj"><i class="fa-regular fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="content"></div>
+      </div>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

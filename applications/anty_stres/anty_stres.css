@@ -1,0 +1,64 @@
+/* anty_stres.css */
+.anti-stress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.stress-tile {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: #1f2937;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    aspect-ratio: 1;
+    backdrop-filter: blur(10px);
+}
+
+.stress-tile:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-color, #10b981);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stress-tile i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color, #10b981);
+    transition: transform 0.3s ease;
+}
+
+.stress-tile:hover i {
+    transform: scale(1.1);
+}
+
+.stress-tile span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .anti-stress-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stress-tile {
+        padding: 1rem;
+    }
+
+    .stress-tile i {
+        font-size: 2rem;
+    }
+}

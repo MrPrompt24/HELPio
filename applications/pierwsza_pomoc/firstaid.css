@@ -1,0 +1,303 @@
+/* First Aid Application Styles */
+.first-aid-app {
+    min-height: calc(100vh - 180px);
+    padding: 1rem;
+    background: linear-gradient(135deg, #7c2d12 0%, #991b1b 100%);
+}
+
+.first-aid-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Views */
+.view-active {
+    display: block;
+}
+
+.view-hidden {
+    display: none;
+}
+
+/* Header */
+.first-aid-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.first-aid-icon {
+    font-size: 4rem;
+    color: #fecaca;
+    margin-bottom: 1rem;
+}
+
+.first-aid-header h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #fecaca;
+    font-size: 1rem;
+}
+
+/* Voice Test Section */
+.voice-test-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.voice-test-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.voice-test-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.voice-status {
+    color: #fecaca;
+    font-size: 0.875rem;
+    margin-top: 0.75rem;
+    min-height: 1.5rem;
+}
+
+/* Categories Grid */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    border-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.category-card i {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.category-card h3 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.category-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* Instructions View */
+.instructions-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#categoryTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Emergency Alert */
+.emergency-alert {
+    background: rgba(239, 68, 68, 0.9);
+    border: 2px solid #fca5a5;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.emergency-alert i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.emergency-alert p {
+    color: white;
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+/* Steps Container */
+.steps-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.step-item:last-child {
+    margin-bottom: 0;
+}
+
+.step-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.step-number {
+    background: #ef4444;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.step-text {
+    color: white;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.step-item.reading {
+    background: rgba(16, 185, 129, 0.3);
+    border: 2px solid #10b981;
+}
+
+/* Voice Controls */
+.voice-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.voice-btn {
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.play-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.play-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.stop-btn {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.stop-btn:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .first-aid-header h1 {
+        font-size: 1.5rem;
+    }
+
+    #categoryTitle {
+        font-size: 1.125rem;
+    }
+
+    .voice-controls {
+        flex-direction: column;
+    }
+
+    .voice-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

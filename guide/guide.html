@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Przewodnik po aplikacji HELPio - Szczegółowy opis wszystkich funkcji i narzędzi.">
+    <meta name="theme-color" content="#10b981">
+
+    <title>Przewodnik HELPio - Pełny Opis</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="guide.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <a href="../index.html" class="header-icon" title="Powrót">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <span class="app-title">Przewodnik HELPio</span>
+            </div>
+            <div class="header-actions">
+                <a href="../index.html"><i class="fas fa-home header-icon"></i></a>
+            </div>
+        </header>
+
+        <aside class="apps-panel" id="apps-panel">
+            <div class="apps-panel-header">
+                <div class="header-row">
+                    <h3>Aplikacje</h3>
+                    <i class="fas fa-times" id="apps-close"></i>
+                </div>
+                <a href="../apps/katalog.html" class="btn-browse-apps">Przeglądaj Aplikacje</a>
+            </div>
+            <div class="apps-grid">
+                <a href="#" class="app-item" id="def-notifications"><i
+                        class="fas fa-bell"></i><span>Powiadomienia</span></a>
+                <a href="#" class="app-item" id="def-chat-ai"><i class="fas fa-robot"></i><span>Chat AI</span></a>
+                <a href="#" class="app-item" id="def-availability"><i
+                        class="fas fa-universal-access"></i><span>Dostępność</span></a>
+                <a href="#" class="app-item" id="def-settings"><i class="fas fa-cog"></i><span>Ustawienia</span></a>
+                <a href="../content/bezpieczenstwo.html" class="app-item" id="def-security"><i
+                        class="fas fa-shield-alt"></i><span>Bezpieczeństwo</span></a>
+                <a href="#" class="app-item" id="def-pin"><i class="fas fa-lock"></i><span>PIN</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content guide-content">
+
+            <section class="guide-intro">
+                <h1>Przewodnik HELPio</h1>
+                <p>
+                    Szczegółowy opis wszystkich funkcji. Wybierz kategorię poniżej, aby dowiedzieć się więcej o każdym
+                    elemencie systemu.
+                </p>
+            </section>
+
+            <!-- Guide Navigation (Table of Contents) -->
+            <nav class="guide-nav">
+                <button class="guide-nav-btn active" data-target="section-critical">Alarmowe & Bezpieczeństwo</button>
+                <button class="guide-nav-btn" data-target="section-health">Zdrowie & Wsparcie</button>
+                <button class="guide-nav-btn" data-target="section-digital">Cyfrowa Higiena</button>
+                <button class="guide-nav-btn" data-target="section-education">Edukacja</button>
+                <button class="guide-nav-btn" data-target="section-tools">Narzędzia & System</button>
+            </nav>
+
+            <div class="guide-sections">
+
+                <!-- Section: Critical (Alarm & Security) -->
+                <article id="section-critical" class="guide-section active">
+                    <h2><i class="fas fa-shield-alt"></i> Systemy Alarmowe i Bezpieczeństwo</h2>
+                    <p class="guide-intro-text">Zestaw narzędzi ratujących życie i chroniących Twoją prywatność.</p>
+
+                    <div class="card highlight-red">
+                        <h3><i class="fas fa-bell"></i> Przycisk SOS</h3>
+                        <p><strong>Czym jest:</strong> To Twój główny "czerwony przycisk" na wypadek zagrożenia. Znajduje się zawsze na środku dolnego paska.</p>
+                        <p><strong>Jak działa:</strong> Po naciśnięciu, aplikacja automatycznie pobiera Twoją lokalizację GPS i tworzy wiadomość SMS z prośbą o pomoc oraz linkiem do mapy. Wiadomość jest gotowa do wysłania do zaufanej osoby, którą wcześniej skonfigurujesz.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-id-card"></i> Karta ICE (Medyczna)</h3>
+                        <p><strong>Czym jest:</strong> Elektroniczna wersja karty "In Case of Emergency" (W razie wypadku).</p>
+                        <p><strong>Do czego służy:</strong> Przechowuje Twoje kluczowe dane medyczne: grupę krwi, alergie, przyjmowane leki i choroby przewlekłe. Ratownik medyczny ma do niej dostęp jednym kliknięciem ("Dla Ratownika"), co może uratować Ci życie, gdy będziesz nieprzytomny.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-volume-mute"></i> Tryb Cichy</h3>
+                        <p><strong>Czym jest:</strong> Narzędzie do dyskretnego wzywania pomocy.</p>
+                        <p><strong>Jak działa:</strong> Pozwala wysłać alarmowy SMS z lokalizacją, nie wydając przy tym żadnych dźwięków. Idealne w sytuacji, gdy musisz się ukrywać lub nie chcesz zdradzać swojej pozycji napastnikowi.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-battery-half"></i> Tryb Awaryjny</h3>
+                        <p><strong>Czym jest:</strong> Skrót do oszczędzania energii.</p>
+                        <p><strong>Kiedy użyć:</strong> Gdy jesteś w terenie (np. zagubiłeś się w lesie) i masz niski poziom baterii. Jednym kliknięciem przenosi Cię do ustawień systemowych, abyś mógł maksymalnie wydłużyć działanie telefonu.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Moja Pozycja</h3>
+                        <p><strong>Czym jest:</strong> Precyzyjny lokalizator GPS.</p>
+                        <p><strong>Jak działa:</strong> Wyświetla Twoje dokładne współrzędne geograficzne oraz (jeśli to możliwe) adres. Niezbędne, gdy dzwonisz pod numer 112 i musisz podać dyspozytorowi, gdzie się znajdujesz.</p>
+                    </div>
+                </article>
+
+                <!-- Section: Health (Health & Support) -->
+                <article id="section-health" class="guide-section">
+                    <h2><i class="fas fa-heartbeat"></i> Zdrowie i Wsparcie</h2>
+                    <p class="guide-intro-text">Moduły dbające o Twoje zdrowie fizyczne i psychiczne.</p>
+
+                    <div class="card">
+                        <h3><i class="fas fa-first-aid"></i> Pierwsza Pomoc</h3>
+                        <p><strong>Czym jest:</strong> Interaktywny przewodnik ratunkowy.</p>
+                        <p><strong>Co zawiera:</strong> 11 kluczowych kategorii (m.in. RKO, Zawał, Udar, Krwotok) z instrukcjami krok-po-kroku. Każda instrukcja jest napisana prostym językiem, abyś w stresie wiedział dokładnie, co robić.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-life-ring"></i> Przewodnik w Kryzysie</h3>
+                        <p><strong>Czym jest:</strong> Zbiór procedur na trudne sytuacje życiowe.</p>
+                        <p><strong>Co zawiera:</strong> Porady jak radzić sobie np. w przypadku przemocy domowej, nagłej utraty bliskiej osoby czy ataku paniki. To Twoja "apteczka psychologiczna".</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-book-medical"></i> Notatnik Kryzysowy</h3>
+                        <p><strong>Czym jest:</strong> Bezpieczne miejsce na Twoje myśli.</p>
+                        <p><strong>Jak działa:</strong> Pozwala zapisywać ważne informacje, emocje czy zdarzenia w trudnych chwilach. Notatki są prywatne i mogą pomóc Ci uporządkować myśli lub służyć jako dokumentacja.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-bolt"></i> Motywator</h3>
+                        <p><strong>Czym jest:</strong> Codzienna dawka wsparcia.</p>
+                        <p><strong>Jak działa:</strong> Dostarcza pozytywne myśli i cytaty, które pomagają poprawić nastrój i budować odporność psychiczną każdego dnia.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-flag"></i> Zgłoszenia</h3>
+                        <p><strong>Czym jest:</strong> System raportowania nieprawidłowości.</p>
+                        <p><strong>Do czego służy:</strong> Jeśli zauważysz błąd w aplikacji lub chcesz zgłosić problem dotyczący bezpieczeństwa, możesz to zrobić bezpośrednio tutaj.</p>
+                    </div>
+                </article>
+
+                <!-- Section: Digital Hygiene -->
+                <article id="section-digital" class="guide-section">
+                    <h2><i class="fas fa-hand-sparkles"></i> Higiena Cyfrowa</h2>
+                    <p class="guide-intro-text">Narzędzia pomagające zachować równowagę w świecie technologii.</p>
+
+                    <div class="card">
+                        <h3><i class="fas fa-lock"></i> Cyber Ochrona</h3>
+                        <p><strong>Czym jest:</strong> Centrum bezpieczeństwa Twoich danych.</p>
+                        <p><strong>Co zawiera:</strong>
+                            <br>• <strong>Generator Haseł:</strong> Tworzy silne, trudne do złamania hasła.
+                            <br>• <strong>Analizator:</strong> Sprawdza, czy Twoje obecne hasło jest bezpieczne.
+                            <br>• <strong>Poradnik:</strong> Lista kroków, jak zabezpieczyć smartfon przed atakami.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-mobile-alt"></i> Detoks Cyfrowy</h3>
+                        <p><strong>Czym jest:</strong> Program naprawczy dla nadużywających telefonu.</p>
+                        <p><strong>Co oferuje:</strong> Test sprawdzający uzależnienie od ekranu oraz 7-dniowy plan wyzwań (np. "Spacer bez telefonu"), który pomaga odzyskać kontrolę nad czasem.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-coffee"></i> Cyfrowe Hygge</h3>
+                        <p><strong>Czym jest:</strong> Filozofia spokoju.</p>
+                        <p><strong>Opis:</strong> Poradnik, jak tworzyć w domu strefy wolne od technologii, aby odpocząć psychicznie od ciągłych powiadomień.</p>
+                    </div>
+                </article>
+
+                <!-- Section: Education -->
+                <article id="section-education" class="guide-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Edukacja</h2>
+                    <p class="guide-intro-text">Wiedza, która buduje pewność siebie w działaniu.</p>
+
+                    <div class="card">
+                        <h3>Zasada 3B</h3>
+                        <p>Fundament ratownictwa: <strong>B</strong>ezpieczeństwo własne, <strong>B</strong>ezpieczeństwo miejsca, <strong>B</strong>ezpieczeństwo poszkodowanego. Dowiesz się, dlaczego zawsze musisz zadbać o siebie w pierwszej kolejności.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Efekt Widza</h3>
+                        <p>Wyjaśnienie zjawiska, dlaczego ludzie w tłumie nie reagują na wypadki. Nauczysz się, jak "wskazać palcem" konkretną osobę do pomocy, aby przełamać ten paraliż.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Wzywanie Pomocy (112)</h3>
+                        <p>Symulator rozmowy z dyspozytorem. Dowiesz się, jakie informacje podać, w jakiej kolejności i dlaczego nigdy nie wolno rozłączać się jako pierwszemu.</p>
+                    </div>
+                </article>
+
+                <!-- Section: Tools (Tools & Systems) -->
+                <article id="section-tools" class="guide-section">
+                    <h2><i class="fas fa-tools"></i> Narzędzia i System</h2>
+                    <p class="guide-intro-text">Codzienne ułatwienia i konfiguracja aplikacji.</p>
+
+                    <div class="card">
+                        <h3><i class="fas fa-calendar-day"></i> Mój Dzień</h3>
+                        <p>Prosty, prywatny planer zadań. Lista rzeczy do zrobienia jest przechowywana tylko w Twoim telefonie, co gwarantuje pełną prywatność.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-address-book"></i> Moje Kontakty</h3>
+                        <p>Bezpieczna książka adresowa, oddzielona od głównej listy kontaktów w telefonie. Idealna na numery do lekarzy czy specjalistów, które chcesz mieć zawsze pod ręką, ale chronione PIN-em.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-file-import"></i> Eksport / Import</h3>
+                        <p>Funkcja kopii zapasowej. Możesz zapisać wszystkie swoje dane z aplikacji (Kartę ICE, notatki, kontakty) do pliku. Przydatne przy zmianie telefonu – po prostu wczytujesz plik na nowym urządzeniu i masz wszystko z powrotem. Pamiętaj: dane są tylko Twoje, nie wysyłamy ich do chmury!</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-cog"></i> Ustawienia i PIN</h3>
+                        <p>Tutaj skonfigurujesz Numer Alarmowy dla przycisku SOS oraz nadasz 4-cyfrowy kod PIN. Kod PIN blokuje dostęp do wrażliwych danych (ICE, Kontakty, Notatki), chroniąc je przed ciekawskimi, którzy wezmą Twój telefon.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-universal-access"></i> Dostępność</h3>
+                        <p>Opcje dla osób słabowidzących: wysoki kontrast, powiększona czcionka i inne ułatwienia, aby każdy mógł wygodnie korzystać z HELPio.</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="guide-footer">
+            <p>&copy; 2025 HELPio. Twój osobisty asystent.</p>
+        </footer>
+
+    </div>
+
+    <script src="guide.js"></script>
+</body>
+
+</html>

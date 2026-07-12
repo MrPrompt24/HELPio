@@ -1,0 +1,142 @@
+/* moja_pozycja.css */
+.position-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+.position-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.position-header h2 {
+    font-size: 1.8rem;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.position-header p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.action-area {
+    margin-bottom: 2rem;
+}
+
+.btn-locate {
+    background: #10b981;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-locate:hover {
+    background: #059669;
+}
+
+.btn-locate:active {
+    transform: scale(0.98);
+}
+
+.results-area {
+    display: none;
+    /* Hidden by default */
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    animation: fadeIn 0.5s;
+}
+
+.results-area.visible {
+    display: block;
+}
+
+.result-item {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.label {
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.value {
+    font-weight: 700;
+    color: #1f2937;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.map-link-container {
+    margin-top: 2rem;
+}
+
+.btn-map {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-map:hover {
+    background: #2563eb;
+}
+
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    min-height: 1.5em;
+}
+
+.status-error {
+    color: #ef4444;
+}
+
+.status-success {
+    color: #10b981;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

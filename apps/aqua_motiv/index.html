@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaMotiv</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/motivation.css">
+	<link rel="stylesheet" href="css/share.css">
+  
+</head>
+<body>
+    <div class="app-container fade-in">
+        <div class="app-header">
+            <h1 class="app-title">
+                <i class="fas fa-tint water-icon"></i>
+                AquaMotiv
+            </h1>
+            <p class="discrete-datetime" id="currentDateTime"></p>
+           <button class="icon-button share-icon-button" id="shareIconButton" aria-label="Udostępnij">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <button class="icon-button info-icon-button" id="infoIconButton" aria-label="Informacje o aplikacji">
+                <i class="fas fa-question-circle"></i>
+            </button>
+            <button class="icon-button settings-icon-button" id="settingsIconButton" aria-label="Ustawienia">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+
+        <nav class="app-nav">
+            <ul>
+                <li><a href="#home" class="active" data-section="home">Home</a></li>
+                <li><a href="#tips" data-section="tips">Porady</a></li>
+                <li><a href="#statistics" data-section="statistics">Statystyki</a></li>
+                </ul>
+        </nav>
+
+        <div id="home-section" class="app-section active">
+            <p class="welcome-message" id="welcomeMessageHome"></p><button class="motivate-button pulse" id="motivateButton">
+    <i class="fas fa-trophy"></i> Zmotywuj Mnie!
+</button> <button class="main-button ripple pulse" id="addButton">
+                <i class="fas fa-plus" style="font-size: 2rem;"></i>
+                <span>Dodaj Napełnienie</span>
+            </button>
+
+            <div class="home-grid">
+                <div class="card">
+                    <div class="card-title">Napełnienia Dzisiaj</div>
+                    <div class="card-value" id="dailyFills">0</div>
+                    <div class="card-unit">napełnień</div>
+                    <button class="reset-daily-button" id="resetDailyButton">Resetuj</button>
+                    <div class="daily-limit-info" id="dailyLimitInfo"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Aktualne Napełnienia</div>
+                    <div class="card-value" id="currentFilterFills">0</div>
+                    <div class="card-unit">napełnień</div>
+                </div>
+                <div class="card">
+                    <div class="combined-card-content">
+                        <div class="combined-card-item">
+                            <div class="card-title">Do Wymiany</div>
+                            <div class="card-value" id="remainingFilterFills">0</div>
+                            <div class="card-unit">napełnień</div>
+                        </div>
+                        <div class="combined-card-item">
+                            <div class="card-title">Całkowita Wydajność</div>
+                            <div class="card-value" id="totalFilterCapacityFills">0</div>
+                            <div class="card-unit">napełnień</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="statistics-section" class="app-section">
+            <h2 class="statistics-header">Twoje Statystyki Wody</h2>
+
+            <div class="current-stats-card">
+                <p>Napełnienia dzisiaj: <strong><span id="statDailyFills">0</span></strong></p>
+                <p>Napełnienia filtra: <strong><span id="statCurrentFilterFills">0</span></strong></p>
+                <p>Pozostało do wymiany: <strong><span id="statRemainingFilterFills">0</span></strong></p>
+                <p>Pełna wydajność filtra: <strong><span id="statTotalFilterCapacityFills">0</span></strong></p>
+                <p>Alarm filtra na: <strong><span id="statAlarmThreshold">0</span></strong> napełnień przed końcem</p>
+                <p>Dzienny limit: <strong><span id="statDailyLimit">Brak ustawionego limitu</span></strong></p>
+            </div>
+
+            <div class="reward-section" id="rewardSection">
+                </div>
+        </div>
+
+
+        <div id="tips-section" class="app-section">
+            <h2>Porady dotyczące picia wody</h2>
+            <div class="accordion" id="waterTipsAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            1. Zacznij dzień od szklanki wody
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Picie wody zaraz po przebudzeniu pomaga nawodnić organizm, aktywować metabolizm i oczyścić ciało z toksyn.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. Noś zawsze butelkę z wodą
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Mając wodę pod ręką, łatwiej jest pamiętać o regularnym piciu i unikać odwodnienia w ciągu dnia.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            3. Ustal sobie cele nawodnienia
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Wyznacz sobie dzienne cele dotyczące ilości wypitej wody (np. 8 szklanek) i monitoruj postępy.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            4. Pij wodę przed posiłkami
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Wypicie szklanki wody 30 minut przed jedzeniem może pomóc w trawieniu i kontrolowaniu apetytu.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            5. Dodaj smaku wodzie
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Jeśli nie lubisz smaku czystej wody, dodaj do niej plasterki cytryny, ogórka, miętę lub owoce.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            6. Zwiększ spożycie wody podczas aktywności fizycznej
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Podczas ćwiczeń tracimy dużo płynów, dlatego ważne jest, aby pić wodę przed, w trakcie i po treningu.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            7. Unikaj słodkich napojów
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Słodzone napoje nie nawadniają efektywnie i mogą przyczyniać się do spożycia pustych kalorii. Wybieraj wodę.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            8. Monitoruj kolor moczu
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Jasny, słomkowy kolor moczu zazwyczaj wskazuje na odpowiednie nawodnienie. Ciemniejszy kolor może sygnalizować odwodnienie.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            9. Pij regularnie małe ilości
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Zamiast pić duże ilości wody naraz, staraj się pić mniejsze porcje co godzinę lub dwie.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            10. Woda to podstawa zdrowej skóry
+                        </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#waterTipsAccordion">
+                        <div class="accordion-body">
+                            Odpowiednie nawodnienie pomaga utrzymać elastyczność skóry, opóźnia powstawanie zmarszczek i nadaje jej zdrowy blask.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-section" class="app-section"> <h2>O Aplikacji</h2>
+            <div class="about-content">
+                <p>
+                    Aplikacja <strong>AquaMotiv</strong> to proste narzędzie stworzone, aby pomóc Ci w monitorowaniu zużycia wody przefiltrowanej przez Twoją butelkę filtrującą, oraz w śledzeniu Twojego dziennego nawodnienia.
+                    Naszym celem jest ułatwienie Ci dbania o zdrowie poprzez regularne picie wody i terminową wymianę filtra który nie posiada wskaźnika zużycia, co zapewni Ci zawsze świeżą i czystą wodę.
+                </p>
+                <p>
+                    <strong>Główne funkcje:</strong>
+                    <ul>
+                        <li>Liczenie napełnień filtra.</li>
+                        <li>Monitorowanie dziennego spożycia wody.</li>
+                        <li>Informowanie o zbliżającej się potrzebie wymiany filtra.</li>
+                        <li>Personalizacja ustawień pojemności filtra i butelki.</li>
+                        <li>Przydatne porady dotyczące nawodnienia.</li>
+                        <li>System motywacyjny nagradzający za osiągnięcie dziennego limitu.</li>
+                        <li><strong>Nowość:</strong> Komunikaty motywacyjne (wyzwalane przyciskiem i automatyczne).</li>
+                        <li><strong>Nowość:</strong> Łatwe udostępnianie aplikacji znajomym.</li>
+                        <li><strong>Ulepszenie:</strong> Uatrakcyjniony wygląd aplikacji z animacjami.</li>
+                    </ul>
+                </p>
+
+                <h3>Jak korzystać z aplikacji: Instrukcja krok po kroku</h3>
+                <ol>
+                    <li>
+                        <strong>Uruchomienie i pierwsze kroki:</strong>
+                        <p>Po pierwszym uruchomieniu aplikacji przejdź do sekcji Ustawienia (ikona zębatki w prawym górnym rogu ekranu).</p>
+                    </li>
+                    <li>
+                        <strong>Personalizacja ustawień:</strong>
+                        <ul>
+                            <li><strong><font color="red">UWAGA! Wszystkie dane i informacje w aplikacji są zapisywane w bazie przeglądarki na Twoim urządzeniu. Nikt poza Tobą ich nie widzi i nie ma do nich dostępu. Dbamy o Twoje bezpieczeństwo</font></strong></li>
+							<li>Twoje Imię: Wprowadź swoje imię, aby aplikacja mogła się do Ciebie zwracać osobiście.</li>
+                            <li>Ilość wody jaką przefiltruje filtr (L): Wpisz całkowitą pojemność filtra w litrach (np. 300L dla większości filtrów Dafi). Ta wartość jest na opakowaniu filtra.</li>
+                            <li>Pojemność butelki (ml): Podaj pojemność Twojej butelki Dafi w mililitrach (np. 500ml).</li>
+                            <li>Dzienny limit napełnień (opcjonalnie): Ustaw liczbę butelek, którą chcesz wypijać każdego dnia. Jeśli osiągniesz ten limit, otrzymasz miłą gratulację w statystykach! Możesz to pole zostawić puste, jeśli nie chcesz ustalać dziennego limitu.</li>
+                            <li>Alarmuj przed końcem filtra (napełnień): Określ, ile napełnień przed całkowitym zużyciem filtra aplikacja ma Cię o tym informować. Domyślnie to 50 napełnień.</li>
+                        </ul>
+                        <p>Po uzupełnieniu wszystkich danych kliknij Zapisz Ustawienia.</p>
+                    </li>
+                    <li>
+                        <strong>Dodawanie napełnień:</strong>
+                        <p>Wróć do sekcji Home (główny ekran). Za każdym razem, gdy napełnisz swoją butelkę filtrującą, kliknij duży przycisk Dodaj Napełnienie.</p>
+                        <p>Aplikacja automatycznie zwiększy licznik napełnień filtra oraz licznik napełnień dziennych.</p>
+                    </li>
+                    <li>
+                        <strong>Monitorowanie postępów:</strong>
+                        <p>Na ekranie głównym zobaczysz:</p>
+                        <ul>
+                            <li>Napełnienia dzisiaj: Ile razy napełniłeś butelkę danego dnia.</li>
+                            <li>Aktualne napełnienia: Ile napełnień pozostało do wymiany filtra.</li>
+                            <li>Do wymiany: Ile napełnień pozostało do wymiany filtra.</li>
+                            <li>Całkowita wydajność: Całkowita ilość napełnień, jaką filtr może przefiltrować.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Sprawdzanie statystyk i motywacja:</strong>
+                        <p>Przejdź do sekcji Statystyki. Znajdziesz tu:</p>
+                        <ul>
+                            <li>Szczegółowe dane dotyczące napełnień.</li>
+                            <li>Sekcję Nagroda, która będzie Cię motywować do picia wody. Jeśli osiągniesz dzienny limit, zobaczysz gratulacje i motywujący komunikat! Jeśli nie, aplikacja zachęci Cię do dalszego picia.</li>
+                            <li>Dodatkowo, na ekranie głównym znajdziesz przycisk "Zmotywuj Mnie!", który wyświetli losowy komunikat motywacyjny. Aplikacja będzie również sama wyświetlać komunikaty motywacyjne w odpowiednich momentach.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Porady, reset i udostępnianie:</strong>
+                        <ul>
+                            <li>W sekcji Porady znajdziesz wskazówki dotyczące zdrowego nawodnienia.</li>
+                            <li>W Ustawieniach masz opcję Resetuj Licznik (całkowity reset wszystkich danych) oraz Resetuj obok licznika dziennego (resetuje tylko dzienny licznik). Używaj ich ostrożnie, ponieważ danych nie da się odzyskać!</li>
+                            <li>Użyj przycisku "Udostępnij" (ikona udostępniania w nagłówku aplikacji), aby łatwo podzielić się aplikacją AquaMotiv ze znajomymi.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>
+                    Dbaj o swoje nawodnienie i ciesz się czystą wodą!
+                </p>
+                <p>
+                    Wersja: 1.5 <br>
+                    Data powstania: Czerwiec 2025 <br>
+                    Autor: MrPrompt
+                </p>
+            </div>
+        </div>
+
+
+        <div id="settings-section" class="app-section">
+            <h2>Ustawienia</h2>
+            <div class="settings-form">
+                <label for="userName">Twoje Imię:</label>
+                <input type="text" id="userName" value="">
+
+                <label for="filterCapacityL">Ilość wody jaką przefiltruje filtr (L):</label>
+                <input type="number" id="filterCapacityL" value="300" min="1" step="1">
+
+                <label for="bottleCapacityMl">Pojemność butelki (ml):</label>
+                <input type="number" id="bottleCapacityMl" value="500" min="1" step="1">
+
+                <label for="dailyLimitFills">Dzienny limit napełnień (opcjonalnie):</label>
+                <input type="number" id="dailyLimitFills" placeholder="np. 4 butelki" min="0" step="1">
+
+                <label for="alarmThreshold">Alarmuj przed końcem filtra (napełnień):</label>
+                <input type="number" id="alarmThreshold" value="50" min="0" step="1">
+            </div>
+            <button class="save-settings-button" id="saveSettingsButton">
+                <i class="fas fa-save"></i> Zapisz Ustawienia
+            </button>
+            <button class="reset-full-button" id="resetButton">
+                <i class="fas fa-undo-alt"></i> Resetuj Licznik
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <i class="fas fa-question-circle modal-icon confirm"></i>
+            <h3 class="modal-title">Potwierdzenie</h3>
+            <p class="modal-text">Czy na pewno chcesz dodać napełnienie do licznika?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm" id="confirmAdd">
+                    <i class="fas fa-check"></i> Tak
+                </button>
+                <button class="modal-btn cancel" id="cancelAdd">
+                    <i class="fas fa-times"></i> Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="resetDailyModal">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-triangle modal-icon warning"></i>
+            <h3 class="modal-title">Potwierdź Reset Dzienny</h3>
+            <p class="modal-text">Czy na pewno chcesz zresetować licznik napełnień dzisiaj?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm" id="confirmResetDaily">
+                    <i class="fas fa-check"></i> Tak, resetuj
+                </button>
+                <button class="modal-btn cancel" id="cancelResetDaily">
+                    <i class="fas fa-times"></i> Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="resetFullModal">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-triangle modal-icon warning"></i>
+            <h3 class="modal-title">Ostrzeżenie: Reset Całkowity</h3>
+            <p class="modal-text">Czy na pewno chcesz zresetować WSZYSTKIE liczniki? Ta operacja nie może być cofnięta.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn confirm" id="confirmResetFull">
+                    <i class="fas fa-check"></i> Resetuj Wszystko
+                </button>
+                <button class="modal-btn cancel" id="cancelResetFull">
+                    <i class="fas fa-times"></i> Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="alarmModal">
+        <div class="modal-content">
+            <i class="fas fa-bell modal-icon warning"></i>
+            <h3 class="modal-title">Alarm: Wymień Filtr!</h3>
+            <p class="modal-text" id="alarmMessage"></p>
+            <div class="modal-buttons">
+                <button class="modal-btn ok" id="closeAlarmModal">
+                    <i class="fas fa-check"></i> Rozumiem
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="settingsSavedModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle modal-icon success"></i>
+            <h3 class="modal-title">Ustawienia Zapisane!</h3>
+            <p class="modal-text">Twoje ustawienia zostały pomyślnie zapisane.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn ok" id="closeSettingsSavedModal">
+                    <i class="fas fa-check"></i> OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="js/main.js"></script>
+	<script src="js/motivation.js"></script>
+	<script src="js/zmotywuj.js"></script>
+	<script src="js/share.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,262 @@
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --primary-color: #007bff;
+    --emotional-color: #20c997;
+    --online-color: #fd7e14;
+    --emergency-color: #dc3545;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.main-header {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.main-header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Sections */
+section {
+    padding: 15px;
+}
+
+.pinned-section h2 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-menu {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* Category Cards */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.icon-wrapper.emotional { background-color: var(--emotional-color); }
+.icon-wrapper.online { background-color: var(--online-color); }
+.icon-wrapper.emergency { background-color: var(--emergency-color); }
+
+.card h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Detail View */
+.detail-view {
+    padding: 0;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.module-list {
+    list-style: none;
+}
+
+.module-item {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.module-item:last-child {
+    border-bottom: none;
+}
+
+.module-item .title {
+    font-weight: 600;
+}
+
+.procedure-content {
+    padding: 20px;
+}
+
+.procedure-header {
+    margin-bottom: 20px;
+}
+
+.procedure-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.step-card {
+    background: #fff;
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.step-card.action {
+    border-left-color: var(--emergency-color);
+    background-color: #fff5f5;
+}
+
+.step-number {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.pin-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.pin-btn.pinned {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #fff;
+}
+
+.quick-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.action-btn.urgent {
+    background-color: var(--emergency-color);
+}
+
+#offline-status {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8rem;
+}

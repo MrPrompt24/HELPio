@@ -1,0 +1,93 @@
+/* digital-silence.css */
+.silence-container {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.silence-icon {
+    font-size: 4rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+.timer-display {
+    font-size: 5rem;
+    font-weight: 200;
+    font-variant-numeric: tabular-nums;
+    margin: 1rem 0;
+    color: #1f2937;
+    text-shadow: none;
+}
+
+.silence-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-silence {
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #1f2937;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.btn-silence:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.btn-silence.active {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+/* Fullscreen focus mode styling */
+.focus-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-mode .timer-display {
+    font-size: 8rem;
+    color: #444;
+}
+
+.focus-mode .silence-icon {
+    display: none;
+}
+
+.focus-message {
+    opacity: 0;
+    margin-top: 2rem;
+    color: #666;
+    transition: opacity 2s;
+}
+
+.focus-mode .focus-message {
+    opacity: 1;
+}
+
+.exit-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem;
+    color: #333;
+}

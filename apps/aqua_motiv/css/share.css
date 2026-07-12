@@ -1,0 +1,122 @@
+/* Style dla modala udostępniania */
+.share-modal .modal-content {
+    max-width: 320px;
+    padding: 25px;
+}
+
+.share-modal .modal-icon.primary {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.share-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.share-option i {
+    font-size: 1.2rem;
+}
+
+.share-option.facebook {
+    background: linear-gradient(135deg, #3b5998, #4c70ba);
+}
+
+.share-option.twitter {
+    background: linear-gradient(135deg, #1DA1F2, #1a91da);
+}
+
+.share-option.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.share-option.email {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+.share-option.copy {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+.share-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.share-option:active {
+    transform: translateY(0);
+}
+
+/* Style dla powiadomienia o kopiowaniu */
+.share-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 10000;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.share-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.share-notification.success {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.share-notification i {
+    font-size: 16px;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .share-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100px);
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+    
+    .share-notification.show {
+        transform: translateY(0);
+    }
+    
+    .share-modal .modal-content {
+        padding: 20px 15px;
+        margin: 0 10px;
+    }
+}

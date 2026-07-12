@@ -1,0 +1,621 @@
+/* moj_dzien.css */
+
+/* --- Layout & General --- */
+.my-day-container {
+    padding: 1rem;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    display: none;
+    /* Hidden by default */
+}
+
+.my-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.my-day-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #10b981;
+}
+
+.add-btn {
+    background: #10b981;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background: #059669;
+}
+
+/* --- Filter/Stats Section --- */
+.stats-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 120px;
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #10b981;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- Task List --- */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.task-item.done {
+    opacity: 0.6;
+}
+
+.task-item.done .task-title {
+    text-decoration: line-through;
+}
+
+.task-content {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.task-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.8rem;
+}
+
+.task-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.task-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}
+
+.task-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.task-btn.edit:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.task-btn.check:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-category-praca {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.badge-category-dom {
+    background: #f59e0b;
+    color: #000;
+}
+
+.badge-category-zdrowie {
+    background: #ec4899;
+    color: #fff;
+}
+
+.badge-category-inne {
+    background: #6b7280;
+    color: #fff;
+}
+
+.badge-status-todo {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.badge-status-inprogress {
+    background: #f59e0b;
+    color: #000;
+}
+
+.badge-status-done {
+    background: #10b981;
+    color: #fff;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #1f2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #10b981;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --- Toast Notification --- */
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toast {
+    background: #1f2937;
+    border-left: 4px solid #10b981;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    min-width: 300px;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* --- Fix: czarny tekst w zadaniach --- */
+.task-item {
+    color: #000;
+}
+
+.task-title {
+    color: #000;
+}
+
+.task-desc {
+    color: #000;
+}
+
+.task-meta {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.badge {
+    color: #000;
+}
+
+.task-status {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.status-todo {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.status-todo:hover {
+    background-color: #d5d5d5;
+}
+
+.status-done {
+    background-color: #10b981;
+    color: #fff;
+}
+
+.status-done:hover {
+    background-color: #0f9d77;
+}
+
+/* --- Task Cards 3D --- */
+.task-item {
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    flex-direction: column;
+    cursor: default;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+}
+
+.task-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15), -12px -12px 20px rgba(255, 255, 255, 0.8);
+}
+
+.task-item.done {
+    opacity: 0.7;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.task-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+}
+
+.task-meta {
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.task-desc {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* --- Task Actions --- */
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.task-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.task-btn.edit {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.task-btn.edit:hover {
+    background: #2563eb;
+}
+
+.task-btn.delete {
+    background: #ef4444;
+    color: #fff;
+}
+
+.task-btn.delete:hover {
+    background: #dc2626;
+}
+
+.task-status {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.status-todo {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.status-todo:hover {
+    background-color: #d5d5d5;
+}
+
+.status-done {
+    background-color: #10b981;
+    color: #fff;
+}
+
+.status-done:hover {
+    background-color: #0f9d77;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-category-praca {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.badge-category-dom {
+    background: #f59e0b;
+    color: #000;
+}
+
+.badge-category-zdrowie {
+    background: #ec4899;
+    color: #fff;
+}
+
+.badge-category-inne {
+    background: #6b7280;
+    color: #fff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .task-item {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .task-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .task-title {
+        font-size: 1.1rem;
+    }
+}

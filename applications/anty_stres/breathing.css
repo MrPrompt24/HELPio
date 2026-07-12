@@ -1,0 +1,208 @@
+.breathing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #374151;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.breathing-circle-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base circle for the gradient background */
+.breathing-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Contrast Gradient: Deep Purple to Vibrant Pink/Orange */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff758c 100%);
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+    transform: scale(0.6);
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Outer glow effect */
+.breathing-circle-glow {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(118, 75, 162, 0.2) 0%, transparent 70%);
+    z-index: 0;
+    transform: scale(0.6);
+}
+
+.circle-content {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+.breathing-instruction {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.breathing-timer {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-variant-numeric: tabular-nums;
+}
+
+.controls {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 20;
+}
+
+.technique-selector {
+    background: #f3f4f6;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    min-width: 220px;
+    transition: border-color 0.2s;
+}
+
+.technique-selector:focus {
+    border-color: #764ba2;
+    outline: none;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.btn-start:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-start:active {
+    transform: scale(0.98);
+}
+
+.btn-start.active {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Animation Classes */
+/* We will use CSS variables or JS to control duration, but let's keep base animations */
+
+.inhale .breathing-circle,
+.inhale .breathing-circle-glow {
+    animation-name: grow;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: var(--duration, 4s);
+}
+
+.hold .breathing-circle {
+    animation-name: pulse-hold;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: var(--duration, 4s);
+}
+
+.hold .breathing-circle-glow {
+    animation-name: grow;
+    /* Keep expanded */
+    animation-fill-mode: forwards;
+    animation-duration: 0s;
+    /* Instant */
+}
+
+
+.exhale .breathing-circle,
+.exhale .breathing-circle-glow {
+    animation-name: shrink;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: var(--duration, 4s);
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0.6);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(0.6);
+    }
+}
+
+@keyframes pulse-hold {
+    0% {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 50px rgba(118, 75, 162, 0.6);
+    }
+
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+    }
+}

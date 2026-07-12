@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Notatnik Kryzysowy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="logo"><i class="fas fa-heart-pulse"></i> Notatnik Kryzysowy</h1>
+            <button id="btn-settings" class="icon-btn" aria-label="Ustawienia">
+                <i class="fas fa-cog"></i>
+            </button>
+        </header>
+
+        <!-- Main View: List of Notes -->
+        <main id="view-list" class="view active">
+            <div class="filter-bar">
+                <input type="text" id="search-input" placeholder="Szukaj...">
+                <select id="emotion-filter">
+                    <option value="">Wszystkie emocje</option>
+                    <option value="lęk">Lęk</option>
+                    <option value="złość">Złość</option>
+                    <option value="smutek">Smutek</option>
+                    <option value="stres">Stres</option>
+                    <option value="radość">Radość</option>
+                    <option value="inne">Inne</option>
+                </select>
+            </div>
+            <div id="notes-container" class="notes-list">
+                <!-- Notes will be injected here -->
+                <div class="empty-state">
+                    <i class="fas fa-book-open"></i>
+                    <p>Brak notatek. Dodaj pierwszą wpisując, co czujesz.</p>
+                </div>
+            </div>
+            <button id="btn-add-note" class="fab" aria-label="Dodaj notatkę">
+                <i class="fas fa-plus"></i>
+            </button>
+        </main>
+
+        <!-- Editor View: Add/Edit Note -->
+        <main id="view-editor" class="view">
+            <div class="editor-header">
+                <button id="btn-back-editor" class="icon-btn"><i class="fas fa-arrow-left"></i></button>
+                <h2 id="editor-title">Nowy wpis</h2>
+                <button id="btn-save-note" class="icon-btn text-btn">Zapisz</button>
+            </div>
+            <form id="note-form">
+                <input type="hidden" id="note-id">
+                
+                <div class="form-group">
+                    <label>Data i czas</label>
+                    <input type="datetime-local" id="note-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Co czujesz? (Dominująca emocja)</label>
+                    <div class="emotion-selector" id="emotion-selector">
+                        <!-- Javascript will handle selection -->
+                        <button type="button" class="emotion-chip" data-value="lęk">😟 Lęk</button>
+                        <button type="button" class="emotion-chip" data-value="złość">😠 Złość</button>
+                        <button type="button" class="emotion-chip" data-value="smutek">😢 Smutek</button>
+                        <button type="button" class="emotion-chip" data-value="stres">😫 Stres</button>
+                        <button type="button" class="emotion-chip" data-value="radość">🙂 Radość</button>
+                        <button type="button" class="emotion-chip" data-value="inne">😐 Inne</button>
+                    </div>
+                    <input type="hidden" id="note-emotion" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="note-desc">Opis sytuacji i odczuć</label>
+                    <textarea id="note-desc" rows="4" placeholder="Opisz co się stało i jak się czujesz..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="note-actions">Co zrobiłeś/aś? (Strategia radzenia)</label>
+                    <textarea id="note-actions" rows="3" placeholder="Np. spacer, ćwiczenia oddechowe, rozmowa..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Ocena skuteczności (1-5)</label>
+                    <div class="rating-input">
+                        <input type="range" id="note-rating" min="1" max="5" value="3" step="1">
+                        <div class="rating-labels">
+                            <span>Nie pomogło</span>
+                            <span>Bardzo pomogło</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <!-- Settings / Security View -->
+        <main id="view-settings" class="view">
+            <div class="settings-header">
+                <button id="btn-back-settings" class="icon-btn"><i class="fas fa-arrow-left"></i></button>
+                <h2>Ustawienia</h2>
+            </div>
+            
+            <div class="settings-content">
+                <div class="setting-card">
+                    <h3><i class="fas fa-shield-alt"></i> Bezpieczeństwo</h3>
+                    <p>Możesz zabezpieczyć swoje notatki hasłem. Jeśli zapomnisz hasła, nie odzyskasz notatek.</p>
+                    
+                    <div id="encryption-status" class="status-box">
+                        Stan: <strong>Niezaszyfrowane</strong>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="encryption-password">Ustaw/Zmień hasło</label>
+                        <input type="password" id="encryption-password" placeholder="Nowe hasło">
+                    </div>
+                    <button id="btn-enable-encryption" class="btn-primary full-width">Włącz szyfrowanie</button>
+                    <button id="btn-decrypt-data" class="btn-secondary full-width hidden">Wyłącz szyfrowanie (Odszyfruj)</button>
+                </div>
+
+                <div class="setting-card">
+                    <h3><i class="fas fa-database"></i> Dane</h3>
+                    <button id="btn-export" class="btn-outline full-width"><i class="fas fa-file-export"></i> Eksportuj dane</button>
+                    <button id="btn-clear-data" class="btn-danger full-width"><i class="fas fa-trash-alt"></i> Wyczyść wszystkie dane</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Auth Modal -->
+        <div id="auth-modal" class="modal hidden">
+            <div class="modal-content">
+                <i class="fas fa-lock lock-icon"></i>
+                <h3>Wprowadź hasło</h3>
+                <p>Twoje notatki są zaszyfrowane.</p>
+                <input type="password" id="auth-password" placeholder="Hasło">
+                <button id="btn-unlock" class="btn-primary full-width">Odblokuj</button>
+                <div id="auth-error" class="error-msg"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

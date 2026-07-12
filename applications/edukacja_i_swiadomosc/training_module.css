@@ -1,0 +1,109 @@
+/* training_module.css */
+.training-container {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #1f2937;
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+.training-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.training-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.training-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.training-lead {
+    font-size: 1.2rem;
+    color: #4b5563;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #10b981;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.section-title i {
+    background: #ecfdf5;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.content-block p {
+    margin-bottom: 1rem;
+    color: #374151;
+}
+
+.content-block ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.content-block li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+}
+
+.content-block li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.highlight-box {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #475569;
+}
+
+.training-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+}
+
+.nav-btn:hover {
+    color: #10b981;
+}

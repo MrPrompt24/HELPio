@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Souls Studio - Era III</title>
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        :root {
+            --accent-color: #60a5fa;
+            --gradient-start: #2563eb;
+            --gradient-end: #1e40af;
+            --text-on-dark: #ffffff;
+            --dark-card-bg: #1e293b;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, #000000 100%);
+            color: var(--text-on-dark);
+            padding: 3rem 1.5rem;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 60%);
+            pointer-events: none;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
+        .brand-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-logo i {
+            font-size: 4.5rem;
+            color: #60a5fa;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+        }
+
+        .brand-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .brand-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            color: #bfdbfe;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 2rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--dark-card-bg);
+            border-radius: 1rem;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+
+        .content-section h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+        }
+
+        .content-section h2 i {
+            color: #60a5fa;
+        }
+
+        .content-section p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .doctrine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .doctrine-card {
+            background: #0f172a;
+            padding: 1.2rem;
+            border-radius: 0.8rem;
+            border: 1px solid #334155;
+        }
+
+        .doctrine-card h4 {
+            color: #60a5fa;
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .doctrine-card p {
+            font-size: 0.85rem;
+            margin: 0;
+            color: #94a3b8;
+        }
+
+        .film-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .film-item {
+            padding: 1rem;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .film-item:last-child {
+            border-bottom: none;
+        }
+
+        .film-icon {
+            color: #3b82f6;
+            font-size: 1.2rem;
+        }
+
+        .film-title {
+            color: white;
+            font-weight: 600;
+        }
+
+        .film-desc {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .btn-action {
+            display: block;
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s;
+            text-align: center;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .quote-box {
+            font-style: italic;
+            color: #94a3b8;
+            border-left: 3px solid #60a5fa;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="card-header">
+        <a href="../partners/partnerzy.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        <div class="brand-logo">
+            <!-- Abstract/Tech icon -->
+            <i class="fas fa-cube"></i>
+        </div>
+        <h1 class="brand-title">Synthetic Souls Studio™</h1>
+        <p class="brand-subtitle">Tworzę światy, nie reklamy.</p>
+    </header>
+
+    <main class="card-content">
+
+        <section class="content-section">
+            <h2><i class="fas fa-meteor"></i> Era III zaczyna się tu</h2>
+            <p>
+                Nazywam się <strong>Darkar Sinoe</strong>. Nie produkuję contentu – projektuję światy, do których marki
+                chcą zapraszać ludzi.
+            </p>
+            <p>
+                W Synthetic Souls Studio™ tworzymy <strong>premium filmy GenAI</strong> oraz immersyjne narracje oparte
+                o autorską metodykę. Łączymy film, zaawansowaną sztuczną inteligencję, psychologię odbiorcy i warstwę
+                semantyczną. Tak powstaje nowy język komunikacji.
+            </p>
+            <div class="quote-box">
+                "Język emocji, nie formatów. Projektowanie odczuwania — nie przekazu."
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-network-wired"></i> Doktryna Sinoe™</h2>
+            <p>Nasza praca opiera się na 6 filarach, które tworzą mapę języka Ery III:</p>
+            <div class="doctrine-grid">
+                <div class="doctrine-card">
+                    <h4>Emotion Architecture™</h4>
+                    <p>Projektowanie architektury odczuć odbiorcy.</p>
+                </div>
+                <div class="doctrine-card">
+                    <h4>Human360°</h4>
+                    <p>Człowiek jako intencja i rezonans, nie tylko "dane".</p>
+                </div>
+                <div class="doctrine-card">
+                    <h4>Semantic Steering™</h4>
+                    <p>Precyzyjne sterowanie znaczeniem w komunikacji AI.</p>
+                </div>
+                <div class="doctrine-card">
+                    <h4>Imprint™</h4>
+                    <p>Tworzenie trwałego śladu emocjonalnego w pamięci.</p>
+                </div>
+                <div class="doctrine-card">
+                    <h4>Signal Doctrine™</h4>
+                    <p>Cisza, która mówi. Projektowanie znaczenia w szumie.</p>
+                </div>
+                <div class="doctrine-card">
+                    <h4>Resonance Design™</h4>
+                    <p>Treści rezonujące z archetypami kulturowymi.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-film"></i> Immersive Works</h2>
+            <p>Odkryj nasze światy stworzone z emocji, znaczenia i światła:</p>
+            <ul class="film-list">
+                <li class="film-item">
+                    <i class="fas fa-play-circle film-icon"></i>
+                    <div>
+                        <div class="film-title">AETHER — Become Your Horizon</div>
+                        <div class="film-desc">The Explorer. Podróż przez światło i ruch.</div>
+                    </div>
+                </li>
+                <li class="film-item">
+                    <i class="fas fa-play-circle film-icon"></i>
+                    <div>
+                        <div class="film-title">WELES — Return of the Forgotten God</div>
+                        <div class="film-desc">The Magician. Mit i kod pamięci.</div>
+                    </div>
+                </li>
+                <li class="film-item">
+                    <i class="fas fa-play-circle film-icon"></i>
+                    <div>
+                        <div class="film-title">EVELLE — The Beauty Ritual</div>
+                        <div class="film-desc">The Lover. Rytuał piękna jako komunikacja duszy.</div>
+                    </div>
+                </li>
+                <li class="film-item">
+                    <i class="fas fa-play-circle film-icon"></i>
+                    <div>
+                        <div class="film-title">BULGASAL — The Immortal Soul</div>
+                        <div class="film-desc">The Warrior. Historia o winie, czasie i przebaczeniu.</div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-paper-plane"></i> Współpraca</h2>
+            <p>Jesteś gotów, by Twoja marka przemówiła językiem Ery III? Stwórzmy razem coś niepowtarzalnego.</p>
+            <a href="https://syntheticsouls.studio/" target="_blank" class="btn-action">Wejdź do Świata Synthetic
+                Souls</a>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

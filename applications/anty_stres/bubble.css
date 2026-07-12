@@ -1,0 +1,111 @@
+/* bubble.css */
+.bubble-container {
+    min-height: 70vh;
+    /* Use min-height instead of fixed height */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    justify-content: flex-start;
+    /* Start from top */
+    position: relative;
+    overflow: hidden;
+    padding-top: 1rem;
+    gap: 3rem;
+    /* Space between text and bubble */
+}
+
+.bubble {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.95));
+    /* Stronger, more opaque gradient */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Add subtle border */
+    border-radius: 50%;
+    box-shadow:
+        0 10px 40px rgba(16, 185, 129, 0.6),
+        /* Stronger outer glow */
+        inset 0 0 30px rgba(255, 255, 255, 0.4),
+        /* Inner highlight */
+        inset 10px 10px 20px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    animation: float 6s ease-in-out infinite, breathe 8s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    /* Larger text */
+    font-weight: 700;
+    /* Bold text */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Text shadow for readability */
+    text-align: center;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes breathe {
+    0% {
+        width: 200px;
+        height: 200px;
+        opacity: 0.8;
+    }
+
+    50% {
+        width: 280px;
+        height: 280px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0.8;
+    }
+}
+
+.bubble-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.small-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rise 10s linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}

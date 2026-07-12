@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Witamy w HELPio!",
+    "preview": "Cieszymy się, że dołączyłeś do społeczności HELPio.",
+    "content": "Witamy w aplikacji HELPio! Aby w pełni wykorzystać jej możliwości, zajrzyj do instrukcji używania aplikacji, dostępnej w menu po lewej stronie w pozycji 'Przewodnik'. Zachęcamy do zapoznania się z nią, aby szybko i łatwo poruszać się po wszystkich funkcjach aplikacji.",
+    "date": "2025-12-17T10:30:00",
+    "type": "info",
+    "read": false
+  },
+  {
+    "id": 2,
+    "title": "Zasady bezpieczeństwa w HELPio",
+    "preview": "Twoje dane są bezpieczne i pozostają wyłącznie na Twoim urządzeniu.",
+    "content": "W aplikacji HELPio wszystkie dane są zapisywane wyłącznie lokalnie na Twoim urządzeniu. Nie wysyłamy danych na serwer, co zwiększa Twoją prywatność i bezpieczeństwo. Pamiętaj, aby dbać o swoje hasła i nie udostępniać urządzenia osobom trzecim.",
+    "date": "2025-12-17T09:15:00",
+    "type": "warning",
+    "read": false
+  },
+  {
+    "id": 3,
+    "title": "Sekcje edukacyjne do poznania",
+    "preview": "Poznaj moduły Pierwsza Pomoc oraz Edukacja i Świadomość.",
+    "content": "Zachęcamy do zapoznania się z sekcjami 'Pierwsza Pomoc' oraz 'Edukacja i Świadomość', gdzie znajdziesz praktyczne informacje i szkolenia, które pomogą Ci w codziennym dbaniu o bezpieczeństwo swoje i innych. Te moduły są dostępne w menu aplikacji.",
+    "date": "2025-12-16T16:45:00",
+    "type": "reminder",
+    "read": false
+  }
+]

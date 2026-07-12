@@ -1,0 +1,124 @@
+/* test-dominacji.css */
+.test-container {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #1f2937;
+    padding: 1rem;
+}
+
+.question-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.question-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.options-grid {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.option-btn {
+    padding: 1rem;
+    background: #f3f4f6;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.option-btn:hover {
+    background: #e5e7eb;
+}
+
+.option-btn.selected {
+    border-color: #10b981;
+    background: #ecfdf5;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.result-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    margin-top: 2rem;
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.result-section.visible {
+    display: block;
+}
+
+.result-score {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+.result-desc {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.result-details {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.btn-finish {
+    width: 100%;
+    padding: 1rem;
+    background: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background 0.3s;
+}
+
+.btn-finish:hover {
+    background: #059669;
+}
+
+.btn-reset {
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #6b7280;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

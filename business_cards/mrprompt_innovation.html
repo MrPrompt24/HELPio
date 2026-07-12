@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrPrompt - Centrum Otwartych Innowacji</title>
+    <meta name="theme-color" content="#fbbf24">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        :root {
+            --accent-color: #fbbf24;
+            --gradient-start: #fba40e;
+            --gradient-end: #d97706;
+            --text-on-dark: #ffffff;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-on-dark);
+            padding: 2rem 1.5rem;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 4px 15px rgba(251, 164, 14, 0.3);
+            position: relative;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
+        .brand-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-logo i {
+            font-size: 4rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .brand-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .card-content {
+            padding: 2rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section h2 i {
+            color: var(--gradient-start);
+        }
+
+        .content-section p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background: var(--gradient-start);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(251, 164, 14, 0.2);
+            transition: transform 0.2s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            background: var(--gradient-end);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: var(--gradient-start);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="card-header">
+        <a href="../partners/partnerzy.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        <div class="brand-logo">
+            <i class="fas fa-brain"></i>
+        </div>
+        <h1 class="brand-title">MrPrompt Centrum Otwartych Innowacji</h1>
+        <p class="brand-subtitle">Budujemy przyszłość dostępną dla wszystkich</p>
+    </header>
+
+    <main class="card-content">
+
+        <section class="content-section">
+            <h2><i class="fas fa-star"></i> Nasza Misja</h2>
+            <p>
+                W MrPrompt wierzymy, że technologia, a w szczególności Sztuczna Inteligencja, powinna być narzędziem
+                wyrównującym szanse. Naszym celem jest budowanie "otwartych światów AI" – ekosystemów, w których każdy,
+                niezależnie od ograniczeń fizycznych, ekonomicznych czy geograficznych, może się rozwijać, tworzyć i
+                czerpać korzyści z postępu technologicznego.
+            </p>
+            <p>
+                Działamy przeciw wykluczeniu cyfrowemu, tworząc rozwiązania inkluzywne i proste w obsłudze. Wspieramy
+                edukację cyfrową i promujemy etyczne wykorzystanie AI.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-rocket"></i> Co Robimy?</h2>
+            <p><strong>Innowacje Społeczne:</strong> Projektujemy narzędzia, które pomagają w codziennym życiu osób z
+                niepełnosprawnościami.</p>
+            <p><strong>Edukacja:</strong> Prowadzimy warsztaty i szkolenia, oswajając technologię dla seniorów i osób
+                nietechnicznych.</p>
+            <p><strong>Konsulting:</strong> Doradzamy firmom, jak wdrażać AI w sposób odpowiedzialny i zrównoważony.</p>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-globe"></i> Dołącz do nas</h2>
+            <p>Sprawdź naszą stronę internetową, aby dowiedzieć się więcej o naszych projektach i aktualnych
+                inicjatywach.</p>
+            <a href="https://mrprompt.eu/" target="_blank" class="btn-action">Odwiedź MrPrompt.eu</a>
+        </section>
+
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

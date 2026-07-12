@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zasada 3B - HELPio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="training_module.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <i class="fas fa-bars header-icon" id="hamburger-menu"></i>
+                <div class="header-icon apps-icon" id="apps-menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="14" y="2" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="2" y="14" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="14" y="14" width="8" height="8" rx="2" fill="#FFD54F" />
+                    </svg>
+                    <span class="apps-label">Aplikacje</span>
+                </div>
+				<a href="../../index.html" class="header-icon home-icon" id="home-link" title="Strona główna"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-home"></i>
+                    <span class="apps-label">Home</span>
+                </a>
+            </div>
+
+            <a href="../../index.html" class="logo-link">
+                <img src="../../images/logo.png" alt="HELPio" class="logo-image" />
+            </a>
+
+            <div class="header-actions">
+                <i class="fas fa-robot header-icon" title="Chat AI"></i>
+                <a href="../../notifications/notifications.html" style="color: inherit; text-decoration: none;">
+                    <div class="header-icon" title="Powiadomienia">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </a>
+                <a href="../../applications/ustawienia/ustawienia.html" style="color: inherit; text-decoration: none;"><i
+                        class="fas fa-cog header-icon" title="Ustawienia"></i></a>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <nav>
+                <ul class="sidebar-nav">
+                    <a href="../../index.html" class="sidebar-nav-item">
+                        <i class="fas fa-home"></i><span>Home</span>
+                    </a>
+                    <a href="../../guide/guide.html" class="sidebar-nav-item">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                        <span>Przewodnik</span>
+                    </a>
+                    <a href="../../partners/partnerzy.html" class="sidebar-nav-item">
+                        <i class="fas fa-handshake"></i><span>Nasi Partnerzy</span>
+                    </a>
+                    <a href="../../content/bezpieczenstwo.html" class="sidebar-nav-item">
+                        <i class="fas fa-shield-alt"></i><span>Bezpieczeństwo</span>
+                    </a>
+                    <a href="../../applications/karta_ice/karta-ice.html" class="sidebar-nav-item">
+                        <i class="fas fa-id-card"></i><span>Karta ICE</span>
+                    </a>
+                    <a href="../../applications/eksport_import/eksport-import.html" class="sidebar-nav-item">
+                        <i class="fas fa-exchange-alt"></i><span>Eksport-Import</span>
+                    </a>
+                    <a href="../../applications/pin/pin.html" class="sidebar-nav-item">
+                        <i class="fas fa-lock"></i><span>PIN</span>
+                    </a>
+                    <a href="../../content/zglos-pomysl.html" class="sidebar-nav-item">
+                        <i class="fas fa-lightbulb"></i><span>Zgłoś Pomysł</span>
+                    </a>
+                    <a href="../../content/o-aplikacji.html" class="sidebar-nav-item">
+                        <i class="fas fa-info-circle"></i><span>O Aplikacji</span>
+                    </a>
+                </ul>
+
+                <div class="sidebar-logo">
+                    <img src="../../images/powered.png" alt="Powered by" />
+                </div>
+            </nav>
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Apps Panel -->
+        <aside class="apps-panel" id="apps-panel">
+            <div class="apps-panel-header">
+                <div class="header-row">
+                    <h3>Aplikacje</h3>
+                    <i class="fas fa-times" id="apps-close"></i>
+                </div>
+                <a href="../../apps/katalog.html" class="btn-browse-apps">Przeglądaj Aplikacje</a>
+            </div>
+           <div class="apps-grid">
+    <a href="../../apps/core/notatnik_kryzysowy/index.html" target="_blank" class="app-item" id="def-notifications">
+        <i class="fas fa-book-medical"></i>
+        <span>Notatnik Kryzysowy</span>
+    </a>
+
+    <a href="../../apps/core/motywator/index.html" target="_blank" class="app-item" id="def-chat-ai">
+        <i class="fas fa-bolt"></i>
+        <span>Motywator</span>
+    </a>
+
+    <a href="../../apps/core/przewodnik_pierwszej_pomocy_w_kryzysie/index.html" target="_blank" class="app-item" id="def-settings">
+        <i class="fas fa-life-ring"></i>
+        <span>Przewodnik W Kryzysie</span>
+    </a>
+
+    <a href="../../apps/core/zgloszenia/index.html" target="_blank" class="app-item" id="def-security">
+        <i class="fas fa-flag"></i>
+        <span>Zgłoszenia</span>
+    </a>
+</div>
+        </aside>
+        <div class="apps-overlay" id="apps-overlay"></div>
+
+
+        <!-- Main -->
+        <main class="main-content">
+            <div class="dashboard-view">
+                <section class="banner-section" id="banner-carousel">
+                    <div class="banner-content">
+                        <h2 class="banner-title">Portal o Cyberbezpieczeństwie – Najnowsze...</h2>
+                        <button class="banner-button">Dowiedz się więcej &rarr;</button>
+                    </div>
+                    <div class="banner-dots"><span class="banner-dot active"></span></div>
+                </section>
+
+                <section class="content-section" id="content-section">
+
+                    <div class="training-container">
+                        <a href="edukacja_i_swiadomosc.html"
+                            style="color: #4b5563; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                            <i class="fas fa-arrow-left"></i> Powrót do listy szkoleń
+                        </a>
+
+                        <div class="training-card">
+                            <div class="training-header">
+                                <h1 class="training-title">Zasada 3B: Bezpieczeństwo przede wszystkim</h1>
+                                <p class="training-lead">Dlaczego „martwy ratownik to żaden ratownik”? Podstawy oceny
+                                    ryzyka.</p>
+                            </div>
+
+                            <div class="content-block">
+                                <div class="section-title"><i class="fas fa-skull-crossbones"></i> Priorytet: TY</div>
+                                <p>Złota zasada ratownictwa brzmi: <strong>dobry ratownik to żywy i zdrowy
+                                        ratownik</strong>. Twoja chęć pomocy jest szlachetna, ale w momencie, gdy sam
+                                    stajesz się poszkodowanym, przestajesz pomagać, a zaczynasz wymagać pomocy –
+                                    podwajając liczbę ofiar.</p>
+
+                                <div class="highlight-box">
+                                    "Nie wchodź do wody, jeśli nie umiesz pływać. Nie wbiegaj na autostradę. Nie dotykaj
+                                    osoby porażonej prądem, dopóki nie odłączysz zasilania."
+                                </div>
+
+                                <div class="section-title"><i class="fas fa-binoculars"></i> Co to są 3B?</div>
+                                <p>Przed podejściem do poszkodowanego zawsze sprawdź:</p>
+                                <ul>
+                                    <li><strong>Bezpieczeństwo własne:</strong> Czy nic mi nie grozi? (Ogień, prąd,
+                                        agresywny pies, ruch uliczny, toksyczne dymy).</li>
+                                    <li><strong>Bezpieczeństwo poszkodowanego:</strong> Czy mogę go bezpiecznie podejść?
+                                        Czy nie leży w strefie rażenia?</li>
+                                    <li><strong>Bezpieczeństwo świadków:</strong> Czy gapie nie wchodzą na jezdnię? Czy
+                                        ktoś nie pali papierosa przy wycieku paliwa?</li>
+                                </ul>
+
+                                <div class="section-title"><i class="fas fa-traffic-light"></i> Ocena Ryzyka w Praktyce
+                                </div>
+                                <p>Zanim zrobisz pierwszy krok:</p>
+                                <ul>
+                                    <li><strong>Zatrzymaj się</strong> na 5-10 sekund. Weź głęboki oddech.</li>
+                                    <li><strong>Rozejrzyj się</strong> (góra, dół, lewo, prawo). Spójrz czy nie wiszą
+                                        zerwane kable, czy nie nadjeżdża samochód.</li>
+                                    <li><strong>Nasłuchuj</strong>. Czy nie słychać pisku opon, krzyków, wybuchów?</li>
+                                    <li><strong>Węch</strong>. Czy czujesz gaz, paliwo, spaleniznę?</li>
+                                </ul>
+                                <p>Jeśli miejsce jest niebezpieczne i nie możesz go zabezpieczyć – <strong>NIE
+                                        PODCHODŹ</strong>. Wezwij służby (999/112) i czekaj w bezpiecznej odległości. To
+                                    też jest udzielenie pomocy.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </main>
+
+        <!-- Bottom Nav -->
+        <!-- Footer / Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="../../index.html" class="bottom-nav-item active">
+
+            </a>
+            <a href="../../applications/dla_ratownika/dla-ratownika.html" class="bottom-nav-item">
+                <i class="fas fa-user-shield"></i>
+                <span>Dla Ratownika</span>
+            </a>
+            <style>
+                /* Kontener elementu nawigacji */
+                .bottom-nav-item {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    /* Dopasowanie do wysokoĹ›ci paska menu */
+                    padding: 5px;
+                    /* Opcjonalny odstÄ™p wewnÄ™trzny */
+                }
+
+                /* Styl dla samego linku/przycisku */
+                .emergency-button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    max-width: 60px;
+                    /* Maksymalna szerokoĹ›Ä‡, by ikona nie byĹ‚a za wielka */
+                    text-decoration: none;
+                }
+
+                /* Styl dla ikony (obrazka) */
+                .emergency-button img {
+                    width: 100%;
+                    /* Zajmuje caĹ‚Ä… dostÄ™pnÄ… szerokoĹ›Ä‡ rodzica */
+                    height: auto;
+                    /* Zachowuje proporcje */
+                    max-height: 100%;
+                    /* Nie wychodzi poza wysokoĹ›Ä‡ menu */
+                    object-fit: contain;
+                    /* Gwarantuje, ĹĽe ikona nie zostanie przyciÄ™ta ani rozciÄ…gniÄ™ta */
+                    display: block;
+                }
+            </style>
+            <div class="bottom-nav-item">
+                <a href="../../applications/sos/sos.html" class="emergency-button" id="emergency-sos"
+                    aria-label="Wezwij pomoc SOS">
+                    <img src="../../images/sos.png" alt="SOS">
+                </a>
+            </div>
+            <a href="../../applications/pierwsza_pomoc/pierwsza_pomoc.html" class="bottom-nav-item">
+                <i class="fas fa-first-aid"></i>
+                <span>Pierwsza Pomoc</span>
+            </a>
+            <a href="../../applications/moja_pozycja/moja_pozycja.html" class="bottom-nav-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Pozycja</span>
+            </a>
+        </nav>
+    </div>
+    <script src="../../js/script.js"></script>
+    <script src="training_module.js"></script>
+    <script src="../../availability/dostepnosc.js"></script>
+
+</body>
+
+</html>

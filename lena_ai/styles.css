@@ -1,0 +1,230 @@
+:root{
+  --bg: #0b0f14;
+  --panel: #0f1621;
+  --muted: #9fb0c0;
+  --text: #e7eff7;
+  --brand: #66e3ff;
+  --accent: #ffd000;
+  --danger: #ff6b6b;
+  --bubble-user: #122033;
+  --bubble-ai: #0f1b2a;
+  --border-color: rgba(255,255,255,0.08);
+  --border: 1px solid var(--border-color);
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Global */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(102,227,255,0.09), transparent 60%),
+    radial-gradient(1000px 500px at -10% 110%, rgba(255,208,0,0.06), transparent 60%),
+    var(--bg);
+}
+
+/* Animacje panelu */
+@keyframes slideIn { from { transform: translateX(-18px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+@keyframes slideOut { from { transform: translateX(0); opacity: 1 } to { transform: translateX(-18px); opacity: 0 } }
+.sidepanel.slide-in  { animation: slideIn .2s ease forwards }
+.sidepanel.slide-out { animation: slideOut .2s ease forwards }
+
+/* Topbar */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px;
+  background:rgba(11,15,20,0.6);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:var(--border);
+}
+.brand{display:flex; align-items:baseline; gap:10px; font-weight:700}
+.brand i{color:var(--brand)}
+.brand small{font-weight:600; color:var(--muted)}
+
+.actions{display:flex; gap:8px; align-items:center}
+.icon-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px; border-radius:12px;
+  background:#0f1621; border:var(--border); color:var(--text);
+  cursor:pointer; transition:.2s transform,.2s background;
+}
+.icon-btn:hover{transform:translateY(-1px); background:#121c2a}
+.icon-btn.ghost{background:transparent}
+.icon-btn.danger{border-color:rgba(255,107,107,.3); color:#ffdede}
+.icon-btn.xs{padding:6px 8px; border-radius:10px; font-size:.9rem}
+.hide-sm{display:inline}
+@media (max-width:640px){ .hide-sm{display:none} }
+
+/* Layout */
+.layout{
+  display:grid; grid-template-columns:320px 1fr; gap:16px;
+  padding:16px; max-width:1200px; margin:0 auto;
+}
+.layout.panel-hidden{ grid-template-columns:1fr; }
+.row{ display:flex; gap:8px; align-items:center }
+.wrap{ flex-wrap:wrap }
+
+/* Sidepanel */
+.sidepanel{
+  background:linear-gradient(180deg, #0f1621, #0b111a);
+  border:var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:12px; height:max-content;
+}
+.sidepanel.hidden{display:none}
+.sidepanel-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:6px 6px 10px 6px; border-bottom:var(--border);
+}
+.sidepanel-content{display:grid; gap:14px; padding:12px 6px}
+.field{display:grid; gap:8px}
+.field input, .field select, .field textarea{
+  width:100%; padding:10px 12px; border-radius:12px;
+  background:#0c1420; color:var(--text); border:var(--border);
+  outline:none;
+}
+.field textarea{resize:vertical}
+.tips{border-radius:12px; background:#0a111a; padding:8px 12px; border:var(--border)}
+.tips summary{cursor:pointer}
+
+/* Chat */
+.chat{
+  display:flex; flex-direction:column; gap:12px;
+  height:calc(100dvh - 140px);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent), #091017;
+  border:var(--border); border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:12px;
+}
+.messages{
+  list-style:none; margin:0; padding:8px; overflow:auto; flex:1;
+  scrollbar-width:thin; scroll-behavior:smooth;
+}
+.msg{display:grid; grid-template-columns:40px 1fr; gap:10px; margin-bottom:12px; align-items:flex-start}
+.avatar{
+  width:40px; height:40px; border-radius:50%;
+  background: radial-gradient(60% 60% at 30% 30%, var(--brand), #0cf);
+  border:var(--border);
+}
+.msg.user .avatar{ background: radial-gradient(60% 60% at 30% 30%, var(--accent), #ffb300); }
+.bubble{
+  background:var(--bubble-ai); border:var(--border); border-radius:14px; padding:10px 12px;
+}
+.msg.user .bubble{ background:var(--bubble-user) }
+.bubble-head{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  margin-bottom:6px; font-size:.9rem; color:var(--muted);
+}
+.bubble .content{line-height:1.55; white-space:pre-wrap}
+.bubble-actions{display:flex; gap:6px}
+
+/* Markdown basics */
+.bubble .content pre{background:rgba(255,255,255,0.06); padding:10px; border-radius:10px; overflow:auto}
+.bubble .content code{background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:6px}
+.bubble .content ul{margin:8px 0 8px 20px}
+
+/* Composer */
+.composer{
+  display:grid; grid-template-columns:auto 1fr auto; gap:10px;
+  padding:8px; border-top:var(--border); align-items:end;
+}
+.textbox{
+  background:#0c1420; border:var(--border); border-radius:14px; padding:6px 10px;
+}
+#input{
+  width:100%; min-height:36px; max-height:200px; resize:none;
+  background:transparent; color:var(--text); border:none; outline:none;
+  font:inherit; line-height:1.5;
+}
+.send-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:14px; background:linear-gradient(180deg, #12b7ff, #0aa9ee);
+  border:none; color:#001018; font-weight:700; cursor:pointer; box-shadow:0 6px 18px rgba(18,183,255,.25);
+  transition:.2s transform;
+}
+.send-btn:hover{transform:translateY(-1px)}
+#stop-btn[disabled]{opacity:.55; cursor:not-allowed}
+
+/* Dialogi */
+dialog{border:none; padding:0; background:transparent}
+.modal-card{
+  width:min(560px, 92vw); margin:auto; background:var(--panel); color:var(--text);
+  border:var(--border); border-radius:16px; box-shadow:var(--shadow);
+  padding:16px; display:grid; gap:12px;
+}
+.modal-head{display:flex; align-items:center; justify-content:space-between; border-bottom:var(--border); padding-bottom:8px}
+.modal-actions{display:flex; gap:8px; justify-content:flex-end}
+.primary, .ghost{
+  padding:10px 12px; border-radius:12px; border:var(--border); cursor:pointer; color:var(--text);
+  background:#121b28;
+}
+.primary{background:linear-gradient(180deg, var(--accent), #ffb400); color:#1a1400; font-weight:700}
+.muted{color:var(--muted)}
+.mini{font-size:.85rem}
+code{background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:6px}
+
+/* Stopka */
+footer.app-footer{
+  max-width:1200px; margin:10px auto 20px; padding:10px 16px;
+  color:var(--muted); border-top:var(--border); opacity:.9; text-align:center;
+}
+
+/* ===== MOBILE FIXES ===== */
+
+/* 1) Stabilne wymiary logotypu w topbarze */
+.topbar .brand img{
+  width: 28px; height: 28px; object-fit: cover; border-radius: 6px;
+}
+
+/* 2) Nie pozwól topbarowi się łamać; jeśli za ciasno — przewijaj poziomo ikony */
+.topbar{ flex-wrap: nowrap; }
+.actions{
+  overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+}
+.actions::-webkit-scrollbar{ display: none; }
+
+/* 3) Kompaktowe przyciski na małych ekranach */
+@media (max-width: 640px){
+  .icon-btn{ padding:8px 8px; gap:6px; border-radius:10px; }
+  .actions{ gap:6px; }
+}
+
+/* 4) Bezpieczna wysokość sekcji czatu dla mobilnych pasków adresu
+      (svh działa lepiej na telefonach). Zastępujemy stałe 100dvh: */
+.chat{
+  height: calc(min(100dvh, 100svh) - 140px);
+}
+
+/* Gdy topbar urośnie (dwie linie) albo na bardzo wąskich ekranach – daj trochę więcej zapasu */
+@media (max-width: 480px){
+  .chat{ height: calc(min(100dvh, 100svh) - 170px); }
+}
+
+/* 5) Długie słowa / linki niech się łamią, a bąbel niech nie „wychodzi” poza viewport */
+.bubble .content{
+  overflow-wrap: anywhere;
+}
+
+/* 6) Panel boczny w trybie 'overlay' na telefonie
+      (nie zmieniamy Twojego JS – tylko styl zamiany na pełnoekranowy panel). */
+@media (max-width: 900px){
+  /* Grid zostaje 1 kolumną – nawet gdy panel widoczny */
+  .layout{ grid-template-columns: 1fr !important; }
+
+  /* Sam panel staje się nakładką */
+  .sidepanel{
+    position: fixed; inset: 56px 8px 8px 8px;  /* pod topbarem */
+    width: auto; max-height: calc(min(100dvh, 100svh) - 64px);
+    overflow: auto; z-index: 30;
+  }
+}
+
+/* 7) Kompaktowy composer – trochę mniej oddechu na małych ekranach */
+@media (max-width: 480px){
+  .composer{ gap:8px; }
+  .send-btn{ padding:9px 12px; }
+  #input{ line-height:1.4; }
+}
+

@@ -1,0 +1,410 @@
+/* =====================================================
+   TRESC.CSS – WSPÓLNE STYLE DLA PODSTRON CONTENT (HELPio)
+   ===================================================== */
+
+/* Container for content sections */
+.content-container {
+    --content-bg: #f9fafb;
+    --content-card: rgba(255, 255, 255, 0.9);
+    --content-border: rgba(0, 0, 0, 0.08);
+    --content-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --content-shadow-strong: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    /* Default accents (can be overridden per page) */
+    --content-accent: #10b981;
+    /* Default Green for security */
+    --content-warning: #f59e0b;
+    --content-step-bg: #eff6ff;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    box-shadow: var(--content-shadow-strong);
+    color: #1f2937;
+}
+
+/* Page specific overrides */
+.content-container.page-guide {
+    --content-accent: #3b82f6;
+    /* Blue for guide */
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.content-container.page-security {
+    --content-accent: #10b981;
+    /* Green for security */
+}
+
+
+/* ================= HEADER ================= */
+
+.content-header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.2));
+    border: 1px solid var(--content-border);
+    margin-bottom: 0.5rem;
+}
+
+.content-header i {
+    font-size: 2.5rem;
+    color: var(--content-accent);
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.content-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.content-subtitle {
+    font-size: 1rem;
+    color: #4b5563;
+}
+
+
+/* ================= BLOKI (SECTIONS) ================= */
+
+.content-block {
+    background: var(--content-card);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid var(--content-border);
+    box-shadow: var(--content-shadow-soft);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+
+.content-block h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.3rem;
+    color: #111827;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.content-block h2 i {
+    color: var(--content-accent);
+    font-size: 1.1em;
+}
+
+.content-block p,
+.content-block li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 0.75rem;
+}
+
+/* ================= GRID 3D (CARDS) ================= */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.content-card {
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-radius: 1rem;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        6px 6px 12px rgba(0, 0, 0, 0.05),
+        -6px -6px 12px rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        10px 10px 20px rgba(0, 0, 0, 0.1),
+        -6px -6px 14px rgba(255, 255, 255, 1);
+}
+
+.content-card i {
+    font-size: 1.6rem;
+    color: var(--content-accent);
+    margin-bottom: 0.5rem;
+}
+
+.content-card h3,
+.content-card strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: block;
+    color: #1f2937;
+}
+
+.content-card p,
+.content-card span {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+
+/* ================= LISTS ================= */
+
+.content-list ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.content-list li {
+    padding-left: 1.75rem;
+    position: relative;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.content-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--content-accent);
+    font-weight: bold;
+}
+
+
+/* ================= STEPS (GUIDE) ================= */
+
+.content-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.content-step {
+    background: var(--content-step-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.content-step:hover {
+    transform: translateY(-3px);
+}
+
+.content-step-number {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background: var(--content-accent);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-step h3 {
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    color: #1e3a8a;
+    /* Slightly darker for contrast */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.content-container.page-security .content-step h3 {
+    color: #065f46;
+}
+
+.content-step p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: #4b5563;
+}
+
+
+/* ================= ALERTS / WARNINGS / INFO ================= */
+
+.content-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.content-alert.success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #065f46;
+}
+
+.content-alert.warning {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    color: #92400e;
+    align-items: flex-start;
+}
+
+.content-alert.danger {
+    background: rgba(239, 68, 68, 0.08);
+    /* Red tint */
+    color: #7f1d1d;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.content-alert i {
+    font-size: 1.25rem;
+}
+
+.block-dashed {
+    border: 2px dashed rgba(245, 158, 11, 0.4);
+}
+
+
+/* ================= PLACEHOLDER (Future Content) ================= */
+
+.content-placeholder {
+    margin-top: 1.5rem;
+    padding: 3rem 1.5rem;
+    border: 2px dashed #9ca3af;
+    border-radius: 1rem;
+    background: #f9fafb;
+    color: #6b7280;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.content-placeholder:hover {
+    border-color: var(--content-accent);
+    color: var(--content-accent);
+    background: #ffffff;
+}
+
+.content-placeholder i {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+
+/* ================= INTRO LIST (Features) ================= */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.intro-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+}
+
+.intro-item i {
+    font-size: 1.5rem;
+    color: var(--content-accent);
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 0.5rem;
+}
+
+.intro-item strong {
+    display: block;
+    color: #111827;
+    font-size: 0.95rem;
+}
+
+.intro-item span {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+
+/* ================= EMERGENCY NUMBERS ================= */
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.emergency-box {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    padding: 1.25rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.emergency-box .number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #dc2626;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.emergency-box .desc {
+    font-size: 0.8rem;
+    color: #991b1b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ================= MEDIA QUERIES ================= */
+
+@media (max-width: 640px) {
+    .content-container {
+        padding: 1rem;
+        gap: 1.25rem;
+    }
+
+    .content-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .content-block {
+        padding: 1.25rem;
+    }
+
+    .content-steps {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HELPio - Here, Help Meets Technology">
+    <meta name="theme-color" content="#10b981">
+
+    <title>HELPio Here, Help Meets Technology</title>
+
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="edukacja_i_swiadomosc.css">
+
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <i class="fas fa-bars header-icon" id="hamburger-menu"></i>
+                <div class="header-icon apps-icon" id="apps-menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="14" y="2" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="2" y="14" width="8" height="8" rx="2" fill="#FFD54F" />
+                        <rect x="14" y="14" width="8" height="8" rx="2" fill="#FFD54F" />
+                    </svg>
+                    <span class="apps-label">Aplikacje</span>
+                </div>
+				<a href="../../index.html" class="header-icon home-icon" id="home-link" title="Strona główna"
+                    style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-home"></i>
+                    <span class="apps-label">Home</span>
+                </a>
+            </div>
+
+            <a href="../../index.html" class="logo-link">
+                <img src="../../images/logo.png" alt="HELPio" class="logo-image" />
+            </a>
+
+            <div class="header-actions">
+                <i class="fas fa-robot header-icon" title="Chat AI"></i>
+                <a href="../../notifications/notifications.html" style="color: inherit; text-decoration: none;">
+                    <div class="header-icon" title="Powiadomienia">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </a>
+                <a href="../../applications/ustawienia/ustawienia.html" style="color: inherit; text-decoration: none;"><i
+                        class="fas fa-cog header-icon" title="Ustawienia"></i></a>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <nav>
+                <ul class="sidebar-nav">
+                    <a href="../../index.html" class="sidebar-nav-item">
+                        <i class="fas fa-home"></i><span>Home</span>
+                    </a>
+                    <a href="../../guide/guide.html" class="sidebar-nav-item">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                        <span>Przewodnik</span>
+                    </a>
+                    <a href="../../partners/partnerzy.html" class="sidebar-nav-item">
+                        <i class="fas fa-handshake"></i><span>Nasi Partnerzy</span>
+                    </a>
+                    <a href="../../content/bezpieczenstwo.html" class="sidebar-nav-item">
+                        <i class="fas fa-shield-alt"></i><span>Bezpieczeństwo</span>
+                    </a>
+                    <a href="../../applications/karta_ice/karta-ice.html" class="sidebar-nav-item">
+                        <i class="fas fa-id-card"></i><span>Karta ICE</span>
+                    </a>
+                    <a href="../../applications/eksport_import/eksport-import.html" class="sidebar-nav-item">
+                        <i class="fas fa-exchange-alt"></i><span>Eksport-Import</span>
+                    </a>
+                    <a href="../../applications/pin/pin.html" class="sidebar-nav-item">
+                        <i class="fas fa-lock"></i><span>PIN</span>
+                    </a>
+                    <a href="../../content/zglos-pomysl.html" class="sidebar-nav-item">
+                        <i class="fas fa-lightbulb"></i><span>Zgłoś Pomysł</span>
+                    </a>
+                    <a href="../../content/o-aplikacji.html" class="sidebar-nav-item">
+                        <i class="fas fa-info-circle"></i><span>O Aplikacji</span>
+                    </a>
+                </ul>
+
+                <div class="sidebar-logo">
+                    <img src="../../images/powered.png" alt="Powered by" />
+                </div>
+            </nav>
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Apps Panel -->
+        <aside class="apps-panel" id="apps-panel">
+            <div class="apps-panel-header">
+                <div class="header-row">
+                    <h3>Aplikacje</h3>
+                    <i class="fas fa-times" id="apps-close"></i>
+                </div>
+                <a href="../../apps/katalog.html" class="btn-browse-apps">Przeglądaj Aplikacje</a>
+            </div>
+            <div class="apps-grid">
+    <a href="../../apps/core/notatnik_kryzysowy/index.html" target="_blank" class="app-item" id="def-notifications">
+        <i class="fas fa-book-medical"></i>
+        <span>Notatnik Kryzysowy</span>
+    </a>
+
+    <a href="../../apps/core/motywator/index.html" target="_blank" class="app-item" id="def-chat-ai">
+        <i class="fas fa-bolt"></i>
+        <span>Motywator</span>
+    </a>
+
+    <a href="../../apps/core/przewodnik_pierwszej_pomocy_w_kryzysie/index.html" target="_blank" class="app-item" id="def-settings">
+        <i class="fas fa-life-ring"></i>
+        <span>Przewodnik W Kryzysie</span>
+    </a>
+
+    <a href="../../apps/core/zgloszenia/index.html" target="_blank" class="app-item" id="def-security">
+        <i class="fas fa-flag"></i>
+        <span>Zgłoszenia</span>
+    </a>
+</div>
+        </aside>
+        <div class="apps-overlay" id="apps-overlay"></div>
+
+        <!-- Main -->
+        <main class="main-content">
+            <div class="dashboard-view">
+
+                <!-- Banner Section -->
+				<div class="banner-support-label">Wspierają nas:</div>
+                <section class="banner-section" id="banner-carousel">
+                    <div class="banner-content">
+                        <h2 class="banner-title" id="banner-title">Portal o Cyberbezpieczeństwie – Najnowsze...</h2>
+                        <button class="banner-button">Dowiedz się więcej &rarr;</button>
+                    </div>
+                    <div class="banner-dots" id="banner-dots">
+                        <span class="banner-dot active" data-slide="0"></span>
+                        <span class="banner-dot" data-slide="1"></span>
+                        <span class="banner-dot" data-slide="2"></span>
+                        <span class="banner-dot" data-slide="3"></span>
+                        <span class="banner-dot" data-slide="4"></span>
+                        <span class="banner-dot" data-slide="5"></span>
+                    </div>
+                </section>
+
+                <!-- Sekcja Osadzenia -->
+                <section class="content-section" id="content-section">
+
+                    <div class="section-header">
+                        <h2>Edukacja i Świadomość</h2>
+                        <p>Wiedza to podstawa skutecznego działania. Wybierz szkolenie, aby dowiedzieć się więcej.</p>
+                    </div>
+
+                    <div class="edu-grid">
+                        <!-- 1 -->
+                        <a href="zasada_3b.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-shield-virus edu-icon"></i>
+                                <h3 class="edu-title">Zasada 3B: Bezpieczeństwo</h3>
+                                <p class="edu-desc">Dlaczego "martwy ratownik to żaden ratownik"? Jak dbać o własne
+                                    bezpieczeństwo w akcji.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 2 -->
+                        <a href="efekt_widza.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-users edu-icon"></i>
+                                <h3 class="edu-title">Efekt widza</h3>
+                                <p class="edu-desc">Psychologia tłumu. Jak przełamać paraliż i skutecznie wyznaczać
+                                    osoby do pomocy.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 3 -->
+                        <a href="wzywanie_pomocy.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-phone-volume edu-icon"></i>
+                                <h3 class="edu-title">Skuteczne wzywanie 112</h3>
+                                <p class="edu-desc">Jak rozmawiać z dyspozytorem? Kluczowe informacje i zasady
+                                    komunikacji alarmowej.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 4 -->
+                        <a href="psychologia_wsparcia.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-hands-helping edu-icon"></i>
+                                <h3 class="edu-title">Psychologia wsparcia</h3>
+                                <p class="edu-desc">Jak wspierać osoby w szoku? Co mówić, a czego unikać w stresujących
+                                    sytuacjach.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 5 -->
+                        <a href="aspekty_prawne.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-balance-scale edu-icon"></i>
+                                <h3 class="edu-title">Aspekty prawne</h3>
+                                <p class="edu-desc">Czy mogę pójść do więzienia za błędną pomoc? Wyższa konieczność i
+                                    odpowiedzialność karna.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 6 -->
+                        <a href="empatia_w_dzialaniu.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-heart edu-icon"></i>
+                                <h3 class="edu-title">Empatia w działaniu</h3>
+                                <p class="edu-desc">Jak przełamać wstyd, lęk i wewnętrzny opór przed podjęciem
+                                    działania.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 7 -->
+                        <a href="pierwsza_pomoc_emocjonalna.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-user-injured edu-icon"></i>
+                                <h3 class="edu-title">Pomoc emocjonalna dla siebie</h3>
+                                <p class="edu-desc">Jak radzić sobie ze stresem, adrenaliną i emocjami po akcji
+                                    ratunkowej.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- 8 -->
+                        <a href="etyka_i_godnosc.html" class="edu-box">
+                            <div class="edu-content">
+                                <i class="fas fa-user-shield edu-icon"></i>
+                                <h3 class="edu-title">Etyka i godność</h3>
+                                <p class="edu-desc">Ochrona prywatności poszkodowanego. Jak zadbać o szacunek i
+                                    intymność w miejscu zdarzenia.</p>
+                            </div>
+                            <div class="edu-footer">
+                                <span class="edu-btn">Rozpocznij <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer / Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="../../index.html" class="bottom-nav-item active">
+
+            </a>
+            <a href="../../applications/dla_ratownika/dla-ratownika.html" class="bottom-nav-item">
+                <i class="fas fa-user-shield"></i>
+                <span>Dla Ratownika</span>
+            </a>
+            <style>
+                /* Kontener elementu nawigacji */
+                .bottom-nav-item {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    /* Dopasowanie do wysokości paska menu */
+                    padding: 5px;
+                    /* Opcjonalny odstęp wewnętrzny */
+                }
+
+                /* Styl dla samego linku/przycisku */
+                .emergency-button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    max-width: 60px;
+                    /* Maksymalna szerokość, by ikona nie była za wielka */
+                    text-decoration: none;
+                }
+
+                /* Styl dla ikony (obrazka) */
+                .emergency-button img {
+                    width: 100%;
+                    /* Zajmuje całą dostępną szerokość rodzica */
+                    height: auto;
+                    /* Zachowuje proporcje */
+                    max-height: 100%;
+                    /* Nie wychodzi poza wysokość menu */
+                    object-fit: contain;
+                    /* Gwarantuje, że ikona nie zostanie przycięta ani rozciągnięta */
+                    display: block;
+                }
+            </style>
+            <div class="bottom-nav-item">
+                <a href="../../applications/sos/sos.html" class="emergency-button" id="emergency-sos"
+                    aria-label="Wezwij pomoc SOS">
+                    <img src="../../images/sos.png" alt="SOS">
+                </a>
+            </div>
+            <a href="../../applications/pierwsza_pomoc/pierwsza_pomoc.html" class="bottom-nav-item">
+                <i class="fas fa-first-aid"></i>
+                <span>Pierwsza Pomoc</span>
+            </a>
+            <a href="../../applications/moja_pozycja/moja_pozycja.html" class="bottom-nav-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Pozycja</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="../../partners/banners.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../partners/rotator.js"></script>
+    <script src="edukacja_i_swiadomosc.js"></script>
+    <script src="../../availability/dostepnosc.js"></script>
+
+</body>
+
+</html>

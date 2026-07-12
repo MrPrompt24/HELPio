@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Motywator - Twój codzienny impuls</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <h1>Motywator</h1>
+            <button id="settingsBtn" class="icon-btn" aria-label="Ustawienia">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div id="quoteCard" class="quote-card">
+                <div id="categoryBadge" class="quote-category-badge badge-motivation">Motywacja</div>
+                <div id="quoteText" class="quote-text">Ładowanie inspiracji...</div>
+            </div>
+
+            <div class="quote-actions">
+                <button id="likeBtn" class="action-btn" aria-label="Zatwierdź">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                </button>
+                <button id="nextBtn" class="action-btn primary" aria-label="Następny">
+                    Następny
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer / Stats -->
+        <footer>
+            <div class="stats-pill">
+                <i class="fa-solid fa-eye"></i>
+                <span id="viewsCount">0</span> wyświetleń dziś
+            </div>
+            <div class="stats-pill" style="margin-left: 10px;">
+                <i class="fa-solid fa-check"></i>
+                <span id="likesCount">0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsOverlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Ustawienia</div>
+                <button id="closeSettings" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="toggle-row">
+                <span>Tryb ciemny</span>
+                <button id="themeToggle" class="icon-btn"><i class="fa-regular fa-moon"></i></button>
+            </div>
+
+            <!-- Add Quote Form -->
+            <div style="margin-top: 2rem;">
+                <div class="form-group">
+                    <label class="form-label">Dodaj własny komunikat</label>
+                    <textarea id="customQuoteText" placeholder="Co chcesz sobie powiedzieć?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kategoria</label>
+                    <select id="customQuoteCategory">
+                        <option value="motivation">Motywacja</option>
+                        <option value="calm">Spokój</option>
+                        <option value="humor">Humor</option>
+                    </select>
+                </div>
+                <button id="addQuoteBtn" class="action-btn primary" style="width: 100%; font-size: 1rem;">Dodaj</button>
+            </div>
+            
+            <!-- Notification Permission (Simple) -->
+             <div class="toggle-row" style="margin-top: 1rem;">
+                <span>Powiadomienia</span>
+                <button id="notifyToggle" class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
